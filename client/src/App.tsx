@@ -1,5 +1,12 @@
+import PokemonCardTest from "./components/PokemonCardTest";
+import "./App.css";
+
 function App() {
-  return <h1>App</h1>;
+  return (
+    <div className="card-display">
+      <PokemonCardTest />
+    </div>
+  );
 }
 
 export default App;

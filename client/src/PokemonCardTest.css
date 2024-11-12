@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 80%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(177, 177, 177, 0.541);
+  width: 20%;
+  padding-bottom: 1rem;
+}
