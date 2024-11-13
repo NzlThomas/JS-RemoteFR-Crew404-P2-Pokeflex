@@ -1,7 +1,7 @@
+import arrow from "../assets/images/arrow.png";
 import pichu from "../assets/images/pichu.png";
 import pikachu from "../assets/images/pikachu.png";
 import raichu from "../assets/images/raichu.png";
-import arrow from "../assets/images/arrow.png";
 import "../Modal.css";
 
 //typage de ma fonction closeModal (entre parenthèse closeModal peut avoir n'importe quel nom ça ne change pas le résultat), on dit qu'elle est de valeur boolean (true ou false) mais qu'elle
