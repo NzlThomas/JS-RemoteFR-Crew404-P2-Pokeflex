@@ -1,4 +1,4 @@
-import pikachu from "../assets/images/pikachu.jpg";
+import pikachu from "../assets/images/pikachu.png";
 import "../PokemonCardTest.css";
 import { useState } from "react";
 import Modal from "./Modal";
