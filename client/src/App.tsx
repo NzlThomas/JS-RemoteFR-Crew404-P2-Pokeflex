@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import SeeMoreButton from "./components/SeeMoreButton";
 import "./App.css";
 import Pokeclosed from "./components/PokeflexClosed";
