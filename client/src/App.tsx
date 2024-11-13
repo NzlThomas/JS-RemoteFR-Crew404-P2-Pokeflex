@@ -37,6 +37,7 @@ function App() {
     getPokemon();
   }, []);
 
+  // fonction pour que les pokemons suivants s'affichent
   const handleNextPage = async () => {
     const res = await axios.get(nextUrl);
     setNextUrl(res.data.next);
