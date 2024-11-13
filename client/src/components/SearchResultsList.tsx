@@ -1,4 +1,5 @@
 import "./SearchResultsList.css";
+import { useCallback, useEffect, useRef } from "react";
 import { SearchResult } from "./SearchResult";
 
 interface Result {
@@ -22,14 +23,30 @@ export const SearchResultsList: React.FC<SearchResultsListProps> = ({
   onClick,
   setShowResults,
 }) => {
-  // Gestion de la sélection d'un résultat
+  // Gère le défilement automatique de la liste au clavier
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const scrollToIndex = useCallback((index: number) => {
+    const element = listRef.current?.children[index] as HTMLElement;
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedIndex >= 0) {
+      scrollToIndex(selectedIndex);
+    }
+  }, [selectedIndex, scrollToIndex]);
+
+  // Gestion de la sélection d'un résultat au clavier et souris
   const handleSelect = (result: Result) => {
     onClick(result);
     setShowResults(false);
   };
 
   return (
-    <div className="results-list">
+    <div className="results-list" ref={listRef}>
       {results.map((result, index) => (
         <SearchResult
           key={result.id}

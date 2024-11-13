@@ -1,10 +1,12 @@
 import { type KeyboardEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./searchBar.css";
+import axios from "axios";
 
 // Définition des interfaces pour les types de données
 interface Pokemon {
   name: string;
+  url: string;
 }
 interface Result {
   id: number;
@@ -27,28 +29,39 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const [input, setInput] = useState("");
 
   // Fonction pour récupérer les données de l'API
-  const fetchData = (value: string) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((Response) => Response.json())
-      .then((json) => {
-        // Filtre les résultats en fonction de la valeur d'entrée
-        const results = json.filter((user: Pokemon) => {
-          return (
-            value &&
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(value)
-          );
-        });
-        setResults(results);
+  const fetchData = async (value: string) => {
+    try {
+      const response = await axios.get("https://pokeapi.co/api/v2/pokemon", {
+        params: {
+          limit: 1302,
+        },
       });
+      const pokemons: Pokemon[] = response.data.results;
+      const filteredResults = pokemons
+        .filter((pokemon) =>
+          pokemon.name.toLowerCase().includes(value.toLowerCase()),
+        )
+        .map((pokemon, index) => ({
+          id: index + 1,
+          name: pokemon.name,
+        }));
+      setResults(filteredResults);
+    } catch (error) {
+      console.error("Erreur lors de la récupération des données:", error);
+      setResults([]);
+    }
   };
 
   // Gestion du changement de l'input
   const handleChange = (value: string) => {
     setInput(value);
-    fetchData(value);
-    setShowResults(value.length > 0);
+    if (value) {
+      fetchData(value);
+      setShowResults(true);
+    } else {
+      setResults([]);
+      setShowResults(false);
+    }
   };
 
   // Gestion des touches de navigation

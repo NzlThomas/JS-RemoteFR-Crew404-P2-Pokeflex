@@ -37,7 +37,7 @@ function App() {
   const handleResultClick = (result: Result) => {
     setSelectedResult(result.name); // Met à jour l'état avec le résultat sélectionné
     setShowResults(false);
-    // Ajoutez ici la logique pour afficher le resultat de la recherche
+    // Ajouter ici la logique pour afficher le resultat de la recherche
   };
 
   return (
