@@ -1,0 +1,23 @@
+.search-result {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.search-result:hover {
+  background-color: #efefef;
+}
+
+.search-result.selected {
+  background-color: #e0e0e0;
+}
+
+.search-result:focus {
+  outline: 2px solid rgb(255, 0, 0);
+}
