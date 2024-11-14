@@ -26,13 +26,15 @@ function SeeMoreButton() {
   };
 
   return (
-    <div>
-      <ul>
+    <div className="container">
+      <ul className="pokemon-list">
         {items.slice(0, isExpanded ? items.length : 12).map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <li key={item.id} className="pokemon-item">
+            {item.name}
+          </li>
         ))}
       </ul>
-      <button onClick={toggleTitles} type="button">
+      <button onClick={toggleTitles} type="button" className="toggle-button">
         {isExpanded ? "Voir -" : "Voir +"}
       </button>
     </div>

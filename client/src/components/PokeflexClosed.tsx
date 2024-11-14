@@ -1,24 +1,46 @@
 import { useState } from "react";
 import "./PokeflexClosed.css";
 
-function Pokeclosed() {
-  const [isVisible, setIsVisible] = useState(true);
+const Pokeclosed = () => {
+  const [isSplit, setIsSplit] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [isHiddenBackground, setIsHiddenBackground] = useState(false);
 
   const handleClick = () => {
-    setIsVisible(false);
+    if (!clicked) {
+      setIsSplit((prevState) => !prevState);
+      setClicked(true);
+
+      setTimeout(() => {
+        setIsHiddenBackground(true);
+      }, 2000);
+    }
   };
 
   return (
-    <div className="Pokéflex">
-      <h1
-        onClick={handleClick}
-        onKeyDown={(e) => e.key === "Enter" && handleClick()}
-        className={isVisible ? "" : "hidden"}
+    <div className="background-container">
+      <section
+        className={`rectangle ${isSplit ? "split" : ""} ${
+          clicked ? "clicked" : ""
+        } ${isHiddenBackground ? "hidden-background" : ""}`}
+      />
+      <section
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") handleClick();
+        }}
       >
-        Pokéflex
-      </h1>
+        <section className="rectangle-part top-left" />
+        <section className="rectangle-part top-right" />
+        <section className="rectangle-part bottom-left" />
+        <section className="rectangle-part bottom-right" />
+        <section className="rectangle-part left" />
+        <section className="rectangle-part right" />
+        <section className={`pokeflex ${clicked ? "hidden" : ""}`}>
+          Pokéflex
+        </section>
+      </section>
     </div>
   );
-}
+};
 
 export default Pokeclosed;

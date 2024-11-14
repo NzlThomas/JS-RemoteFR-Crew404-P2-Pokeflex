@@ -1,27 +1,113 @@
-.Pokéflex {
-  h1 {
-    font-family: "Pokemon Solid", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 280px;
-    height: 100vh;
-    width: 100%;
-    background-color: #df3535;
-    color: #ffcb05;
-    text-shadow: 12px 2px 0 #0000ff, -2px -2px 0 #0000ff, 2px -2px 0 #0000ff,
-      -2px 2px 0 #0808e0;
-
-    cursor: pointer;
-    font-size: 3rem;
-    text-align: center;
-    transition: opacity 4s ease, transform 1.5s ease, height 0.5s ease;
-  }
+.rectangle {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: #df3535;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 7;
+  transition: all 3s ease;
 }
-.Pokéflex h1.hidden {
-  opacity: 0;
-  transform: translateY(-100px);
-  height: 0;
-  margin: 0;
+
+.rectangle.hidden-background {
+  z-index: -1;
+}
+.rectangle-part {
+  position: fixed;
+  z-index: 8;
+  background-color: #df3535;
+  transition: all 3s ease;
+}
+
+.rectangle-part.transition-end {
+  z-index: -1;
+}
+
+.rectangle-part.top-left,
+.rectangle-part.top-right,
+.rectangle-part.bottom-left,
+.rectangle-part.bottom-right {
+  width: 50%;
+  height: 50%;
+  position: fixed;
+}
+
+.pokeflex {
+  font-family: "Pokemon Solid", sans-serif;
+  font-size: 198px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  color: #ffcc00;
+  text-shadow: 13px 5px 0 #0075be, -10px -5px 0 #0075be, 13px -5px 0 #0075be,
+    -13px 5px 0 #0075be;
+  z-index: 8;
   pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.pokeflex.hidden {
+  opacity: 0;
+}
+
+.rectangle.split {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.rectangle.split .rectangle-part {
+  width: 0px;
+  height: 100vh;
+}
+
+.rectangle.split .rectangle-part.top-left {
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: 100vw;
+}
+
+.rectangle.split .rectangle-part.top-right {
+  top: 0;
+  right: 0;
+  height: 32px;
+  width: 100vw;
+}
+
+.rectangle.split .rectangle-part.bottom-left {
+  bottom: 0;
+  left: 0;
+  height: 32px;
+  width: 100vw;
+}
+
+.rectangle.split .rectangle-part.bottom-right {
+  bottom: 0;
+  right: 0;
+  height: 32px;
+  width: 100vw;
+}
+
+.rectangle.split .rectangle-part.left {
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 100vh;
+}
+
+.rectangle.split .rectangle-part.right {
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 100vh;
+}
+
+.rectangle.split .pokeflex {
+  opacity: 0;
 }

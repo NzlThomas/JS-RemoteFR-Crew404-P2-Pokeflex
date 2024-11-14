@@ -4,11 +4,14 @@ import Pokeclosed from "./components/PokeflexClosed";
 
 function App() {
   return (
-    <section className="App">
-      <Pokeclosed />
-      <h1> Liste des Pokémon</h1>
-      <SeeMoreButton />
-    </section>
+    <div className="app-container">
+      <section className="pokeclosed-section">
+        <Pokeclosed />
+      </section>
+      <section className="seemore-button-section">
+        <SeeMoreButton />
+      </section>
+    </div>
   );
 }
 
