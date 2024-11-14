@@ -1,5 +1,5 @@
-import PokemonCardTest from "./components/PokemonCardTest";
 import { useState } from "react";
+import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
@@ -11,7 +11,6 @@ interface Result {
 }
 
 function App() {
-
   // État pour stocker les résultats de la recherche
   const [results, setResults] = useState<Result[]>([]);
   // État pour suivre l'index du résultat actuellement sélectionné
