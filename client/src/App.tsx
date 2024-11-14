@@ -1,7 +1,5 @@
-
 import PokemonCardTest from "./components/PokemonCardTest";
 import { useState } from "react";
-
 import "./App.css";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
@@ -67,7 +65,7 @@ function App() {
         {/* Affiche le résultat sélectionné */}
         {selectedResult && <p>Sélection : {selectedResult}</p>}
       </div>
-      </div>
+    </div>
   );
 }
 
