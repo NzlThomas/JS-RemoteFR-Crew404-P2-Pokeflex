@@ -7,11 +7,11 @@ function PokemonCardTest() {
   // création du state pour alterner entre false et true (donc modale cachée vs affichée)
   const [displayModal, setDisplayModal] = useState(false);
 
-  // modification de l'état du state au click sur la card
+  // lors du clic sur la card la constante est déclenchée, et elle passe l'état de setDisplayModal à true pour qu'elle soit affichée
   const handleClick = () => {
     setDisplayModal(true);
   };
-  // modification de l'état du state en utilisant seulement le clavier pour l'accessibilité
+  // modification de l'état du state en utilisant seulement le clavier pour l'accessibilité (touche tab puis entrer pour fermer)
   const handleKeyUp = () => {
     setDisplayModal(true);
   };

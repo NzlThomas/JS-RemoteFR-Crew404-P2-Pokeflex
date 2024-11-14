@@ -11,7 +11,7 @@ interface ModalProps {
 }
 
 function Modal({ closeModal }: ModalProps) {
-  //modification de l'état pour fermer la modale au clic sur le bouton
+  //modification de l'état sur false pour que la modale ne soit plus affichée
   const handleClick = () => {
     closeModal(false);
   };
@@ -41,7 +41,7 @@ function Modal({ closeModal }: ModalProps) {
           </section>
 
           <div className="desc-stats-container">
-            <p>
+            <p className="pokemon-description">
               Pikachu est un pikachu, oui c'est une belle description mais c'est
               juste pour combler, oui je mets pas de lorem et alors ?
             </p>
