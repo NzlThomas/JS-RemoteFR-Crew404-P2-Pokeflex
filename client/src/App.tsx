@@ -3,9 +3,9 @@ import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import axios from "axios";
 import PokemonCards from "./components/PokemonCards";
-import type { Pokemon } from "./interface";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
+import type { Pokemon } from "./interface";
 
 // Définition de la structure d'un résultat de recherche
 interface Result {
@@ -60,7 +60,8 @@ function App() {
       }),
     );
     setPokemons((p) => [...p, ...newPokemons]);
-  
+  };
+
   // État pour stocker les résultats de la recherche
   const [results, setResults] = useState<Result[]>([]);
   // État pour suivre l'index du résultat actuellement sélectionné
@@ -89,11 +90,10 @@ function App() {
     setSelectedResult(result.name); // Met à jour l'état avec le résultat sélectionné
     setShowResults(false);
     // Ajouter ici la logique pour afficher le resultat de la recherche
-  }
   };
-  
+
   return (
-     <div className="app">
+    <div className="app">
       <div className="search-bar-container">
         <SearchBar
           setResults={setResults}
@@ -115,14 +115,14 @@ function App() {
         {selectedResult && <p>Sélection : {selectedResult}</p>}
       </div>
       <PokemonCardTest />
-    <section className="app">
-      <PokemonCards pokemons={pokemons} />
-      <button onClick={handleNextPage} type="button" className="more-pokemon">
-        Plus de Pokémons
-      </button>
-    </section>
+      <section className="app">
+        <PokemonCards pokemons={pokemons} />
+        <button onClick={handleNextPage} type="button" className="more-pokemon">
+          Plus de Pokémons
+        </button>
+      </section>
     </div>
   );
-};
+}
 
 export default App;
