@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <div className="app">
+      <PokemonCardTest />
       <div className="search-bar-container">
         <SearchBar
           setResults={setResults}
