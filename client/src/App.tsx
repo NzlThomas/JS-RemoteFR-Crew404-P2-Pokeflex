@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
-import SearchPokemonType from "./components/SearchPokemonType";
 import axios from "axios";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
+import SearchPokemonType from "./components/SearchPokemonType";
 import { SearchResultsList } from "./components/SearchResultsList";
 import type { Pokemon } from "./interface";
 
@@ -103,7 +103,7 @@ function App() {
           setShowResults={setShowResults}
         />
         <SearchPokemonType />
-    
+
         {/* Affiche la liste des résultats seulement si showResults est true */}
         {showResults && (
           <SearchResultsList
