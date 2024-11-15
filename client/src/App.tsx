@@ -100,15 +100,15 @@ function App() {
     <div className="app-container">
       <section className="pokeclosed-section">
         <Pokeclosed />
-      </section> 
-    <div className="app">
-      <nav className="search-bar-container">
-        <SearchBar
-          setResults={setResults}
-          onKeyNavigation={handleKeyNavigation}
-          setShowResults={setShowResults}
-        />
-        <SearchPokemonType />
+      </section>
+     <div className="app">
+       <nav className="search-bar-container">
+         <SearchBar
+           setResults={setResults}
+           onKeyNavigation={handleKeyNavigation}
+           setShowResults={setShowResults}
+         />
+         <SearchPokemonType />
           {/* Affiche la liste des résultats seulement si showResults est true */}
           {showResults && (
             <SearchResultsList
