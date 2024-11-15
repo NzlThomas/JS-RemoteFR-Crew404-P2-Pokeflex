@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import axios from "axios";
+import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
 import SearchPokemonType from "./components/SearchPokemonType";
@@ -95,35 +96,43 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <nav className="search-bar-container">
-        <SearchBar
-          setResults={setResults}
-          onKeyNavigation={handleKeyNavigation}
-          setShowResults={setShowResults}
-        />
-        <SearchPokemonType />
-
-        {/* Affiche la liste des résultats seulement si showResults est true */}
-        {showResults && (
-          <SearchResultsList
-            results={results}
-            selectedIndex={selectedIndex}
-            setSelectedIndex={setSelectedIndex}
-            setShowResults={setShowResults}
-            onClick={handleResultClick}
-          />
-        )}
-        {/* Affiche le résultat sélectionné */}
-        {selectedResult && <p>Sélection : {selectedResult}</p>}
-      </nav>
-      <PokemonCardTest />
-      <section className="app">
-        <PokemonCards pokemons={pokemons} />
-        <button onClick={handleNextPage} type="button" className="more-pokemon">
-          Plus de Pokémons
-        </button>
+    <div className="app-container">
+      <section className="pokeclosed-section">
+        <Pokeclosed />
       </section>
+      <div className="app">
+        <nav className="search-bar-container">
+          <SearchBar
+            setResults={setResults}
+            onKeyNavigation={handleKeyNavigation}
+            setShowResults={setShowResults}
+          />
+          <SearchPokemonType />
+          {/* Affiche la liste des résultats seulement si showResults est true */}
+          {showResults && (
+            <SearchResultsList
+              results={results}
+              selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
+              setShowResults={setShowResults}
+              onClick={handleResultClick}
+            />
+          )}
+          {/* Affiche le résultat sélectionné */}
+          {selectedResult && <p>Sélection : {selectedResult}</p>}
+        </nav>
+        <PokemonCardTest />
+        <section className="app">
+          <PokemonCards pokemons={pokemons} />
+          <button
+            onClick={handleNextPage}
+            type="button"
+            className="seemore-button-section"
+          >
+            Plus de pokémon
+          </button>
+        </section>
+      </div>
     </div>
   );
 }

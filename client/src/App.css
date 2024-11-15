@@ -4,10 +4,44 @@
   --pokeGrey: #828282;
 }
 
+@font-face {
+  font-family: "Flexo-Medium";
+  src: url("./fonts/Flexo-Medium.ttf") format("truetype");
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #222222;
+}
+
+.app-container {
+  display: flex;
+  width: 90vw;
+  max-width: 1200px;
+  height: 90vh;
+  border: none;
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  font-family: "Flexo-Medium", sans-serif;
+  font-size: 30px;
+  color: #ffffff;
 }
 
 .pokemonlist {
