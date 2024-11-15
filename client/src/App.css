@@ -4,12 +4,6 @@
   --pokeGrey: #828282;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: "Flexo-Medium";
   src: url("./fonts/Flexo-Medium.ttf") format("truetype");
@@ -17,6 +11,12 @@
   src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {

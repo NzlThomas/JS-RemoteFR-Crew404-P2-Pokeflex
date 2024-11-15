@@ -5,6 +5,7 @@ import axios from "axios";
 import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
+import SearchPokemonType from "./components/SearchPokemonType";
 import { SearchResultsList } from "./components/SearchResultsList";
 import type { Pokemon } from "./interface";
 
@@ -20,6 +21,7 @@ interface Pokemons {
   url: string;
 }
 
+//fonction Searchtype avec
 function App() {
   // State pour afficher les pokémons par défault
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -94,19 +96,19 @@ function App() {
   };
 
   return (
+
     <div className="app-container">
       <section className="pokeclosed-section">
         <Pokeclosed />
-      </section>
-
-      <div className="app">
-        <div className="search-bar-container">
-          <SearchBar
-            setResults={setResults}
-            onKeyNavigation={handleKeyNavigation}
-            setShowResults={setShowResults}
-          />
-
+      </section> 
+    <div className="app">
+      <nav className="search-bar-container">
+        <SearchBar
+          setResults={setResults}
+          onKeyNavigation={handleKeyNavigation}
+          setShowResults={setShowResults}
+        />
+        <SearchPokemonType />
           {/* Affiche la liste des résultats seulement si showResults est true */}
           {showResults && (
             <SearchResultsList
@@ -119,7 +121,7 @@ function App() {
           )}
           {/* Affiche le résultat sélectionné */}
           {selectedResult && <p>Sélection : {selectedResult}</p>}
-        </div>
+        </nav>
         <PokemonCardTest />
         <section className="app">
           <PokemonCards pokemons={pokemons} />
@@ -128,7 +130,7 @@ function App() {
             type="button"
             className="seemore-button-section"
           >
-            Plus de Pokémons
+            Plus de pokémon
           </button>
         </section>
       </div>
