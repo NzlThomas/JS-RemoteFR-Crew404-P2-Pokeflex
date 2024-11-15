@@ -1,5 +1,3 @@
-
-
 export interface IndexType {
   name: string;
   url: string;
@@ -14,7 +12,6 @@ export interface PokemonTypeListResponse {
   pokemon: IndexPokemonType[];
   id: number;
 }
-
 
 const PokemonType: IndexType[] = [
   {
