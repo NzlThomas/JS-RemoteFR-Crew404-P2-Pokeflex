@@ -1,88 +1,102 @@
-import type { IndexType } from "../types/interfacePokemonType";
 
-//recupération des API pour les types
+
+export interface IndexType {
+  name: string;
+  url: string;
+}
+
+export interface IndexPokemonType {
+  pokemon: IndexType;
+  slot: string;
+}
+
+export interface PokemonTypeListResponse {
+  pokemon: IndexPokemonType[];
+  id: number;
+}
+
+
 const PokemonType: IndexType[] = [
   {
     name: "normal",
-    url: "https://pokeapi.co/api/v2/type/1/"
+    url: "https://pokeapi.co/api/v2/type/1/",
   },
   {
     name: "fighting",
-    url: "https://pokeapi.co/api/v2/type/2/"
+    url: "https://pokeapi.co/api/v2/type/2/",
   },
   {
     name: "flying",
-    url: "https://pokeapi.co/api/v2/type/3/"
+    url: "https://pokeapi.co/api/v2/type/3/",
   },
   {
     name: "poison",
-    url: "https://pokeapi.co/api/v2/type/4/"
+    url: "https://pokeapi.co/api/v2/type/4/",
   },
   {
     name: "ground",
-    url: "https://pokeapi.co/api/v2/type/5/"
+    url: "https://pokeapi.co/api/v2/type/5/",
   },
   {
     name: "rock",
-    url: "https://pokeapi.co/api/v2/type/6/"
+    url: "https://pokeapi.co/api/v2/type/6/",
   },
   {
     name: "bug",
-    url: "https://pokeapi.co/api/v2/type/7/"
+    url: "https://pokeapi.co/api/v2/type/7/",
   },
   {
     name: "ghost",
-    url: "https://pokeapi.co/api/v2/type/8/"
+    url: "https://pokeapi.co/api/v2/type/8/",
   },
   {
     name: "steel",
-    url: "https://pokeapi.co/api/v2/type/9/"
+    url: "https://pokeapi.co/api/v2/type/9/",
   },
   {
     name: "fire",
-    url: "https://pokeapi.co/api/v2/type/10/"
+    url: "https://pokeapi.co/api/v2/type/10/",
   },
   {
     name: "water",
-    url: "https://pokeapi.co/api/v2/type/11/"
+    url: "https://pokeapi.co/api/v2/type/11/",
   },
   {
     name: "grass",
-    url: "https://pokeapi.co/api/v2/type/12/"
+    url: "https://pokeapi.co/api/v2/type/12/",
   },
   {
     name: "electric",
-    url: "https://pokeapi.co/api/v2/type/13/"
+    url: "https://pokeapi.co/api/v2/type/13/",
   },
   {
     name: "psychic",
-    url: "https://pokeapi.co/api/v2/type/14/"
+    url: "https://pokeapi.co/api/v2/type/14/",
   },
   {
     name: "ice",
-    url: "https://pokeapi.co/api/v2/type/15/"
+    url: "https://pokeapi.co/api/v2/type/15/",
   },
   {
     name: "dragon",
-    url: "https://pokeapi.co/api/v2/type/16/"
+    url: "https://pokeapi.co/api/v2/type/16/",
   },
   {
     name: "dark",
-    url: "https://pokeapi.co/api/v2/type/17/"
+    url: "https://pokeapi.co/api/v2/type/17/",
   },
   {
     name: "fairy",
-    url: "https://pokeapi.co/api/v2/type/18/"
+    url: "https://pokeapi.co/api/v2/type/18/",
   },
   {
     name: "stellar",
-    url: "https://pokeapi.co/api/v2/type/19/"
+    url: "https://pokeapi.co/api/v2/type/19/",
   },
   {
     name: "unknown",
-    url: "https://pokeapi.co/api/v2/type/10001/"
+    url: "https://pokeapi.co/api/v2/type/10001/",
   },
-
 ];
 
 export default PokemonType;

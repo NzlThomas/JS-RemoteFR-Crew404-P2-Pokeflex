@@ -1,189 +1,124 @@
-//import axios from "axios";
-import { useState} from "react";
-import axios from "axios";
-//import PokemonType from "./pokemonIndexType";
+
+import { useState } from "react";
 
 
-
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-function SearchPokemonType(this: any) {
+function SearchPokemonType() {
   const [selectedType, setSelectedType] = useState("");
-  
 
- //reprendre video pour modifier handle change et la récup de l'Api
-
-
- //Ajouter des if pour conditionner le changement avec une variable(const) à récuperer dans les onChange
-  const handleChange = () => {
-
-    axios
-      .get("https://pokeapi.co/api/v2/type/")
-      .then((response) => setSelectedType(response.data))
+  const handleChange =(_event: { preventDefault: () => void}) => {
+      fetch("https://pokeapi.co/api/v2/type/")
+      .then((reponse) => reponse.json())
       .catch((err) => console.error(err));
-  } 
-
-
-
-
+  };
 
   return (
     <div>
-      <select 
-        name="selectedType" value={selectedType}
-        onChange={e => setSelectedType(e.target.value)}>
+      <select
+        name="selectedType"
+        value={selectedType}
+        onChange={(e) => setSelectedType(e.target.value)}
+      >
+        <option value={selectedType}>Rechercher par Type de Pokemon</option>
+
+        <option value={selectedType} onChange={handleChange}>
+          normal
+        </option>
+
+        <option value={selectedType} onChange={handleChange}>
+          fighting
+        </option>
+
+
+        <option value={selectedType} onChange={handleChange}>
+          flying
+        </option>
+
+
+        <option value={selectedType} onChange={handleChange}>
+          poison
+        </option>
+      
+        <option value={selectedType} onChange={handleChange}>
+          ground
+        </option>
+
         
-        <option 
-          value={selectedType}>
-            Rechercher par Type de Pokemon
+        <option value={selectedType} onChange={handleChange}>
+          rock
         </option>
+
         
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            normal 
+        <option value={selectedType} onChange={handleChange}>
+          bug
         </option>
 
-
-
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            fighting
+        
+        <option value={selectedType} onChange={handleChange}>
+          ghost
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            flying
+        
+        <option value={selectedType} onChange={handleChange}>
+          steel
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            poison
+        
+        <option value={selectedType} onChange={handleChange}>
+          fire
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            ground
+        
+        <option value={selectedType} onChange={handleChange}>
+          water
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            rock 
+        
+        <option value={selectedType} onChange={handleChange}>
+          grass
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            bug
+        
+        <option value={selectedType} onChange={handleChange}>
+          electric
         </option>
 
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            ghost
+        
+        <option value={selectedType} onChange={handleChange}>
+          psychic
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            steel
+        
+        <option value={selectedType} onChange={handleChange}>
+          ice
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            fire
+        
+        <option value={selectedType} onChange={handleChange}>
+          dragon
+        </option>
+              
+        <option value={selectedType} onChange={handleChange}>
+          dark
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            water
+                
+        <option value={selectedType} onChange={handleChange}>
+          fairy
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            grass
+                
+        <option value={selectedType} onChange={handleChange}>
+          stellar
         </option>
 
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            electric
+                
+        <option value={selectedType} onChange={handleChange}>
+          unknown
         </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            psychic
-        </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            ice
-        </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            dragon
-        </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            dark
-        </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            fairy
-        </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            stellar
-        </option>
-
-
-        <option 
-          value={selectedType}
-          onChange={handleChange}>
-            unknown
-        </option>
-
 
       </select>
-
     </div>
   );
 }
-
 
 export default SearchPokemonType;
