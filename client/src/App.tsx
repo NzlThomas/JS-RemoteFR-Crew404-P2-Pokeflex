@@ -96,7 +96,6 @@ function App() {
   };
 
   return (
-
     <div className="app-container">
       <section className="pokeclosed-section">
         <Pokeclosed />
