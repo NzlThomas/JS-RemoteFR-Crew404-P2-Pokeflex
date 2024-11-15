@@ -123,16 +123,16 @@ function App() {
         <PokemonCardTest />
         <section className="app">
           <PokemonCards pokemons={pokemons} />
-          <button 
-            onClick={handleNextPage} 
-            type="button" 
+          <button
+            onClick={handleNextPage}
+            type="button"
             className="seemore-button-section"
           >
             Plus de Pokémons
           </button>
         </section>
-       </div>
-     </div>
+      </div>
+    </div>
   );
 }
 
