@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import axios from "axios";
+import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
 import type { Pokemon } from "./interface";
-import Pokeclosed from "./components/PokeflexClosed";
         
 // Définition de la structure d'un résultat de recherche
 interface Result {
@@ -123,7 +123,11 @@ function App() {
         <PokemonCardTest />
         <section className="app">
           <PokemonCards pokemons={pokemons} />
-          <button onClick={handleNextPage} type="button" className="seemore-button-section">
+          <button 
+                  onClick={handleNextPage} 
+                  type="button" 
+                  className="seemore-button-section"
+           >
             Plus de Pokémons
           </button>
         </section>
