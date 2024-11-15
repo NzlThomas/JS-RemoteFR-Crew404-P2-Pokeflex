@@ -7,7 +7,7 @@ import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
 import type { Pokemon } from "./interface";
-        
+
 // Définition de la structure d'un résultat de recherche
 interface Result {
   id: number;
@@ -124,15 +124,15 @@ function App() {
         <section className="app">
           <PokemonCards pokemons={pokemons} />
           <button 
-                  onClick={handleNextPage} 
-                  type="button" 
-                  className="seemore-button-section"
-           >
+            onClick={handleNextPage} 
+            type="button" 
+            className="seemore-button-section"
+          >
             Plus de Pokémons
           </button>
         </section>
-    </div>
-   </div>
+       </div>
+     </div>
   );
 }
 
