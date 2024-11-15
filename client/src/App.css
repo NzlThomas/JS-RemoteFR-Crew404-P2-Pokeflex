@@ -1,12 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 #root {
   --pokeRed: #df3535;
   --pokeBlack: #222222;
   --pokeGrey: #828282;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .pokemonlist {

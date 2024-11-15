@@ -4,6 +4,7 @@ import "./App.css";
 import axios from "axios";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
+import SearchPokemonType from "./components/SearchPokemonType";
 import { SearchResultsList } from "./components/SearchResultsList";
 import type { Pokemon } from "./interface";
 
@@ -19,6 +20,7 @@ interface Pokemons {
   url: string;
 }
 
+//fonction Searchtype avec
 function App() {
   // State pour afficher les pokémons par défault
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -94,12 +96,13 @@ function App() {
 
   return (
     <div className="app">
-      <div className="search-bar-container">
+      <nav className="search-bar-container">
         <SearchBar
           setResults={setResults}
           onKeyNavigation={handleKeyNavigation}
           setShowResults={setShowResults}
         />
+        <SearchPokemonType />
 
         {/* Affiche la liste des résultats seulement si showResults est true */}
         {showResults && (
@@ -113,7 +116,7 @@ function App() {
         )}
         {/* Affiche le résultat sélectionné */}
         {selectedResult && <p>Sélection : {selectedResult}</p>}
-      </div>
+      </nav>
       <PokemonCardTest />
       <section className="app">
         <PokemonCards pokemons={pokemons} />
