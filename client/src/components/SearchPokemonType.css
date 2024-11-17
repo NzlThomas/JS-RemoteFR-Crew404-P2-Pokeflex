@@ -1,0 +1,9 @@
+.default-option {
+  font-family: "Montserrat", sans-serif;
+  color: #828282;
+}
+
+select option {
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+}

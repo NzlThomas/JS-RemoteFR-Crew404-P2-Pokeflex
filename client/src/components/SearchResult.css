@@ -2,22 +2,22 @@
   appearance: none;
   background: none;
   border: none;
-  padding: 10px 20px;
-  font: inherit;
+  padding: 8px;
   cursor: pointer;
   outline: inherit;
-  text-align: left;
   width: 100%;
-}
-
-.search-result:hover {
-  background-color: #efefef;
+  max-width: 350px;
+  font-family: "Montserrat", sans-serif;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .search-result.selected {
   background-color: #e0e0e0;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .search-result:focus {
-  outline: 2px solid rgb(255, 0, 0);
+  outline: 2px solid #df3535;
 }
