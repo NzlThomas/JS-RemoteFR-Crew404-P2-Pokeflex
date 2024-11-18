@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import axios from "axios";
 import Pokeclosed from "./components/PokeflexClosed";
@@ -67,7 +66,7 @@ function App() {
   const [results, setResults] = useState<Result[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [showResults, setShowResults] = useState(false);
-  const [selectedResult, setSelectedResult] = useState<string | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
   // Gestion de la navigation au clavier
   const handleKeyNavigation = (key: string) => {
@@ -81,9 +80,25 @@ function App() {
   };
 
   // Gestion du clic sur un résultat
-  const handleResultClick = (result: Result) => {
-    setSelectedResult(result.name);
+  const handleResultClick = async (result: Result) => {
     setShowResults(false);
+    try {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${result.name}`,
+      );
+      setSelectedPokemon(response.data);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des détails du Pokémon:",
+        error,
+      );
+      setSelectedPokemon(null);
+    }
+  };
+
+  // Fonction pour réinitialiser la sélection
+  const resetSelection = () => {
+    setSelectedPokemon(null);
   };
 
   return (
@@ -114,17 +129,31 @@ function App() {
             />
           </div>
         )}
-        {selectedResult && <div>Résultat sélectionné: {selectedResult}</div>}
-        <PokemonCardTest />
-        <section className="app">
-          <PokemonCards pokemons={pokemons} />
-          <button
-            onClick={handleNextPage}
-            type="button"
-            className="seemore-button-section"
-          >
-            Plus de pokémon
-          </button>
+
+        <section className="pokemon-display">
+          {selectedPokemon ? (
+            <>
+              <PokemonCards pokemons={[selectedPokemon]} />
+              <button
+                onClick={resetSelection}
+                type="button"
+                className="reset-button"
+              >
+                Retour à la liste
+              </button>
+            </>
+          ) : (
+            <>
+              <PokemonCards pokemons={pokemons} />
+              <button
+                onClick={handleNextPage}
+                type="button"
+                className="seemore-button-section"
+              >
+                Plus de pokémons
+              </button>
+            </>
+          )}
         </section>
       </div>
     </div>
