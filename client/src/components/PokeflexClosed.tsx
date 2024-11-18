@@ -8,7 +8,7 @@ const Pokeclosed = () => {
 
   const handleClick = () => {
     if (!clicked) {
-      setIsSplit((prevState) => !prevState);
+      setIsSplit(true);
       setClicked(true);
 
       setTimeout(() => {
@@ -17,30 +17,26 @@ const Pokeclosed = () => {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+      handleClick();
+    }
+  };
+
   return (
     <div className="background-container">
-      <section
+      <button
         className={`rectangle ${isSplit ? "split" : ""} ${
           clicked ? "clicked" : ""
         } ${isHiddenBackground ? "hidden-background" : ""}`}
-      />
-      <section
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") handleClick();
-        }}
+        onClick={handleClick}
+        onKeyDown={handleKeyPress}
+        type="button"
+        aria-label="Pokéflex button"
       >
-        <section className="rectangle-part top-left" />
-        <section className="rectangle-part top-right" />
-        <section className="rectangle-part bottom-left" />
-        <section className="rectangle-part bottom-right" />
-        <section className="rectangle-part left" />
-        <section className="rectangle-part right" />
-        <section className={`pokeflex ${clicked ? "hidden" : ""}`}>
-          Pokéflex
-        </section>
-      </section>
+        <div className={`pokeflex ${clicked ? "hidden" : ""}`}>Pokéflex</div>
+      </button>
     </div>
   );
 };
-
 export default Pokeclosed;

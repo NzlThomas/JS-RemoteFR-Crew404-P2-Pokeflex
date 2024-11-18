@@ -20,23 +20,21 @@ interface Pokemons {
   name: string;
   url: string;
 }
-
-//fonction Searchtype avec
 function App() {
-  // State pour afficher les pokémons par défault
+  // État pour afficher les pokémons par défaut
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [nextUrl, setNextUrl] = useState("");
 
   useEffect(() => {
     const getPokemon = async () => {
-      // Je récupère la liste de mes 12 premiers pokémons
+      // Récupère la liste de mes 12 premiers pokémons
       const res = await axios.get(
         "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0",
       );
-      // Je save dans mon state la prochaine URL pour avoir les 12 suivants
+      // Sauvegarde dans le state la prochaine URL pour obtenir les 12 suivants
       setNextUrl(res.data.next);
 
-      // Grâce à Promise.All je m'assure que chaque pokémon son dans l'ordre numérique.
+      // Promise.all pour garantir que chaque pokémon est récupéré dans l'ordre numérique
       const newPokemons = await Promise.all(
         res.data.results.map(async (pokemon: Pokemons) => {
           const poke = await axios.get(
@@ -50,7 +48,7 @@ function App() {
     getPokemon();
   }, []);
 
-  // fonction pour que les pokemons suivants s'affichent
+  // Fonction pour afficher les pokémons suivants
   const handleNextPage = async () => {
     const res = await axios.get(nextUrl);
     setNextUrl(res.data.next);
@@ -65,34 +63,27 @@ function App() {
     setPokemons((p) => [...p, ...newPokemons]);
   };
 
-  // État pour stocker les résultats de la recherche
+  // État pour gérer la recherche
   const [results, setResults] = useState<Result[]>([]);
-  // État pour suivre l'index du résultat actuellement sélectionné
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
-  // État pour contrôler l'affichage de la liste des résultats potentiels
   const [showResults, setShowResults] = useState(false);
-  // État pour afficher le résulat
   const [selectedResult, setSelectedResult] = useState<string | null>(null);
 
   // Gestion de la navigation au clavier
   const handleKeyNavigation = (key: string) => {
     if (key === "ArrowDown") {
-      // Déplace la sélection vers le bas
       setSelectedIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
-      // Déplace la sélection vers le haut
     } else if (key === "ArrowUp") {
       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
     } else if (key === "Enter" && selectedIndex !== -1) {
-      // Sélectionne le résultat actuel quand on appuie sur Entrée
       handleResultClick(results[selectedIndex]);
     }
   };
 
   // Gestion du clic sur un résultat
   const handleResultClick = (result: Result) => {
-    setSelectedResult(result.name); // Met à jour l'état avec le résultat sélectionné
+    setSelectedResult(result.name);
     setShowResults(false);
-    // Ajouter ici la logique pour afficher le resultat de la recherche
   };
 
   return (
@@ -107,9 +98,13 @@ function App() {
             onKeyNavigation={handleKeyNavigation}
             setShowResults={setShowResults}
           />
-          <SearchPokemonType />
-          {/* Affiche la liste des résultats seulement si showResults est true */}
-          {showResults && (
+          <section className="rechercher-par-type">
+            <SearchPokemonType />
+          </section>
+        </nav>
+
+        {showResults && (
+          <div className="search-result">
             <SearchResultsList
               results={results}
               selectedIndex={selectedIndex}
@@ -117,10 +112,9 @@ function App() {
               setShowResults={setShowResults}
               onClick={handleResultClick}
             />
-          )}
-          {/* Affiche le résultat sélectionné */}
-          {selectedResult && <p>Sélection : {selectedResult}</p>}
-        </nav>
+          </div>
+        )}
+        {selectedResult && <div>Résultat sélectionné: {selectedResult}</div>}
         <PokemonCardTest />
         <section className="app">
           <PokemonCards pokemons={pokemons} />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchPokemonType.css";
 
 function SearchPokemonType() {
   const [selectedType, setSelectedType] = useState("");
@@ -16,7 +17,9 @@ function SearchPokemonType() {
         value={selectedType}
         onChange={(e) => setSelectedType(e.target.value)}
       >
-        <option value={selectedType}>Rechercher par Type de Pokemon</option>
+        <option className="default-option" value={selectedType}>
+          Rechercher par Type de Pokemon
+        </option>
 
         <option value={selectedType} onChange={handleChange}>
           normal
