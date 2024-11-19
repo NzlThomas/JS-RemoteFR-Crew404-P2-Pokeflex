@@ -118,17 +118,19 @@ function App() {
           </section>
         </nav>
 
-        {showResults && (
-          <div className="search-result">
-            <SearchResultsList
-              results={results}
-              selectedIndex={selectedIndex}
-              setSelectedIndex={setSelectedIndex}
-              setShowResults={setShowResults}
-              onClick={handleResultClick}
-            />
-          </div>
-        )}
+        <div className="search-results-container">
+          {showResults && (
+            <div className="search-result">
+              <SearchResultsList
+                results={results}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+                setShowResults={setShowResults}
+                onClick={handleResultClick}
+              />
+            </div>
+          )}
+        </div>
 
         <section className="pokemon-display">
           {selectedPokemon ? (
