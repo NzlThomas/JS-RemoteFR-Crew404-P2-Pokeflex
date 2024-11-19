@@ -1,4 +1,4 @@
-import { type KeyboardEvent, useState } from "react";
+import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./searchBar.css";
 import axios from "axios";
@@ -27,6 +27,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   // État local pour stocker la valeur de l'input
   const [input, setInput] = useState("");
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Fonction pour récupérer les données de l'API
   const fetchData = async (value: string) => {
@@ -64,23 +65,44 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     }
   };
 
-  // Gestion des touches de navigation
+  // Gestion des touches de navigation + touche échap
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
       e.preventDefault();
       onKeyNavigation(e.key);
     }
+    if (e.key === "Escape") {
+      setShowResults(false);
+    }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setShowResults(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setShowResults]);
+
   return (
-    <div className="input-wrapper">
-      <FaSearch id="search-icon" />
-      <input
-        placeholder="Rechercher un pokémon"
-        value={input}
-        onChange={(e) => handleChange(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
+    <div ref={wrapperRef} className="search-bar-wrapper">
+      <div className="input-wrapper">
+        <FaSearch id="search-icon" />
+        <input
+          placeholder="Rechercher un pokémon"
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+      </div>
     </div>
   );
 };
