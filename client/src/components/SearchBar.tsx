@@ -40,7 +40,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       const pokemons: Pokemon[] = response.data.results;
       const filteredResults = pokemons
         .filter((pokemon) =>
-          pokemon.name.toLowerCase().includes(value.toLowerCase()),
+          pokemon.name.toLowerCase().startsWith(value.toLowerCase()),
         )
         .map((pokemon, index) => ({
           id: index + 1,
