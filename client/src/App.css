@@ -120,6 +120,7 @@ h1 {
 
 .app {
   position: relative;
+  min-width: 100vh;
 }
 
 .search-bar-container {
@@ -128,7 +129,7 @@ h1 {
 
 .search-results-container {
   position: absolute;
-  top: calc(15% + 3% + 4px); /* Ajusté pour tenir compte de la hauteur de la barre de recherche, de sa marge supérieure et de son padding */
+  top: calc(15% + 3% + 4px);
   left: 0;
   right: 0;
   z-index: 10;
