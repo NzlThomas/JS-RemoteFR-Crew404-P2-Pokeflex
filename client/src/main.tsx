@@ -9,7 +9,7 @@ import App from "./App";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-import Trainers from "./pages/Trainers";
+import TrainerList from "./pages/TrainerList";
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
   // Try adding a new route! For example, "/about" with an About component
   {
     path: "/trainers",
-    element: <Trainers />,
+    element: <TrainerList />,
   },
 ]);
 
