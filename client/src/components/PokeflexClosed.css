@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  z-index: 3;
+  z-index: 1000;
   opacity: 1;
   transition: opacity 3s ease;
   cursor: pointer;
@@ -29,7 +29,7 @@
   color: #ffcc00;
   text-shadow: 13px 5px 0 #0075be, -10px -5px 0 #0075be, 13px -5px 0 #0075be,
     -13px 5px 0 #0075be;
-  z-index: 4;
+  z-index: 1001;
   pointer-events: none;
   opacity: 1;
   transition: opacity 2s ease;

@@ -119,5 +119,26 @@ h1 {
 }
 
 .app {
-  margin: 0px;
+  position: relative;
+  min-width: 100vh;
+}
+
+.search-bar-container {
+  z-index: 5;
+}
+
+.search-results-container {
+  position: absolute;
+  top: calc(15% + 3% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.pokemon-display {
+  position: relative;
+  z-index: 1;
 }
