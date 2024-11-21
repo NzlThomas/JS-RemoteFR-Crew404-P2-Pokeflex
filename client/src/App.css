@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Flexo-Medium";
-  src: url("./fonts/Flexo-Medium.ttf") format("truetype");
+  src: url("/fonts/Flexo-Medium.ttf") format("truetype");
   font-family: "Montserrat";
   src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -27,17 +27,6 @@ body {
   background-color: #222222;
   border-radius: 20px;
   z-index: -2;
-}
-
-.app-container {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  max-width: 1200px;
-  height: 90vh;
-  border: none;
-  padding: 20px;
-  position: relative;
 }
 
 h1 {

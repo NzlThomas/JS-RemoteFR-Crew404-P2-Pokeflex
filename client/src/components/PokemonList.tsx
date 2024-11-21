@@ -1,10 +1,10 @@
-interface Props {
+interface PokemonProps {
   name: string;
   id: number;
   img: string;
 }
 
-function PokemonList(props: Props) {
+function PokemonList(props: PokemonProps) {
   const { name, id, img } = props;
   return (
     <div>

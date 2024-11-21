@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PokemonCardTest from "./components/PokemonCardTest";
+
 import "./App.css";
 import axios from "axios";
 import Pokeclosed from "./components/PokeflexClosed";
@@ -7,6 +7,11 @@ import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
 import SearchPokemonType from "./components/SearchPokemonType";
 import { SearchResultsList } from "./components/SearchResultsList";
+import type {
+  IndexType,
+  PokemonTypeListResponse,
+} from "./components/pokemonIndexType";
+import TypeContext from "./contexts/TypeContext";
 import type { Pokemon } from "./interface";
 
 // Définition de la structure d'un résultat de recherche
@@ -20,6 +25,7 @@ interface Pokemons {
   name: string;
   url: string;
 }
+
 function App() {
   // État pour afficher les pokémons par défaut
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -27,16 +33,14 @@ function App() {
 
   useEffect(() => {
     const getPokemon = async () => {
-      // Récupère la liste de mes 12 premiers pokémons
       const res = await axios.get(
         "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0",
       );
-      // Sauvegarde dans le state la prochaine URL pour obtenir les 12 suivants
       setNextUrl(res.data.next);
 
       // Promise.all pour garantir que chaque pokémon est récupéré dans l'ordre numérique
       const newPokemons = await Promise.all(
-        res.data.results.map(async (pokemon: Pokemons) => {
+        res.data.results.map(async (pokemon: { name: string }) => {
           const poke = await axios.get(
             `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`,
           );
@@ -44,9 +48,48 @@ function App() {
         }),
       );
       setPokemons(newPokemons);
+      setFilteredPokemons(newPokemons);
     };
     getPokemon();
   }, []);
+
+  // Fonction pour gérer la recherche par type
+  const [selectedType, setSelectedType] = useState<IndexType | null>(null);
+  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    const fetchPokemonsByType = async (
+      selectedType: IndexType | null,
+      setFilteredPokemons: React.Dispatch<React.SetStateAction<Pokemon[]>>,
+    ) => {
+      if (!selectedType) return;
+
+      try {
+        const result = await axios.get<PokemonTypeListResponse>(
+          selectedType.url,
+        );
+
+        if (result?.data?.pokemon) {
+          const pokemonPromises = result.data.pokemon.map(async (p) => {
+            const pokemonResponse = await axios.get(p.pokemon.url);
+            return pokemonResponse.data;
+          });
+          const typedPokemons = await Promise.all(pokemonPromises);
+          setFilteredPokemons(typedPokemons);
+        }
+      } catch (error) {
+        console.error(
+          "Erreur lors de la recuperation des pokemons par type :",
+          error,
+        );
+      }
+    };
+    if (selectedType) {
+      fetchPokemonsByType(selectedType, setFilteredPokemons);
+    } else {
+      setFilteredPokemons(pokemons);
+    }
+  }, [selectedType, pokemons]);
 
   // Fonction pour afficher les pokémons suivants
   const handleNextPage = async () => {
@@ -61,6 +104,9 @@ function App() {
       }),
     );
     setPokemons((p) => [...p, ...newPokemons]);
+    if (!selectedType) {
+      setFilteredPokemons((p) => [...p, ...newPokemons]);
+    }
   };
 
   // État pour gérer la recherche
@@ -87,47 +133,48 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <section className="pokeclosed-section">
-        <Pokeclosed />
-      </section>
-      <div className="app">
-        <nav className="search-bar-container">
-          <SearchBar
-            setResults={setResults}
-            onKeyNavigation={handleKeyNavigation}
-            setShowResults={setShowResults}
-          />
-          <section className="rechercher-par-type">
-            <SearchPokemonType />
-          </section>
-        </nav>
-
-        {showResults && (
-          <div className="search-result">
-            <SearchResultsList
-              results={results}
-              selectedIndex={selectedIndex}
-              setSelectedIndex={setSelectedIndex}
-              setShowResults={setShowResults}
-              onClick={handleResultClick}
-            />
-          </div>
-        )}
-        {selectedResult && <div>Résultat sélectionné: {selectedResult}</div>}
-        <PokemonCardTest />
-        <section className="app">
-          <PokemonCards pokemons={pokemons} />
-          <button
-            onClick={handleNextPage}
-            type="button"
-            className="seemore-button-section"
-          >
-            Plus de pokémon
-          </button>
+    <TypeContext.Provider value={{ selectedType, setSelectedType }}>
+      <div className="app-container">
+        <section className="pokeclosed-section">
+          <Pokeclosed />
         </section>
+        <div className="app">
+          <nav className="search-bar-container">
+            <SearchBar
+              setResults={setResults}
+              onKeyNavigation={handleKeyNavigation}
+              setShowResults={setShowResults}
+            />
+            <section className="rechercher-par-type">
+              <SearchPokemonType />
+            </section>
+          </nav>
+
+          {showResults && (
+            <div className="search-result">
+              <SearchResultsList
+                results={results}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+                setShowResults={setShowResults}
+                onClick={handleResultClick}
+              />
+            </div>
+          )}
+          {selectedResult && <div>Résultat sélectionné: {selectedResult}</div>}
+          <section className="app">
+            <PokemonCards pokemons={filteredPokemons} />
+            <button
+              onClick={handleNextPage}
+              type="button"
+              className="seemore-button-section"
+            >
+              Plus de pokémon
+            </button>
+          </section>
+        </div>
       </div>
-    </div>
+    </TypeContext.Provider>
   );
 }
 
