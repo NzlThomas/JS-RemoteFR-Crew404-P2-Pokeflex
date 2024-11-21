@@ -158,6 +158,13 @@ function App() {
             </>
           )}
         </section>
+        <button
+          onClick={handleNextPage}
+          type="button"
+          className="seemore-button-section"
+        >
+          Plus de pokémon
+        </button>
       </div>
       <Link to="/trainers">
         Découvrez en plus sur les différents Dresseurs ici !

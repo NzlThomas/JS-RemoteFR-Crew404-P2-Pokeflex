@@ -1,6 +1,5 @@
 import type { Pokemon } from "../interface";
 import PokemonList from "./PokemonList";
-import "./PokemonCards.css";
 
 interface Props {
   pokemons: Pokemon[];
