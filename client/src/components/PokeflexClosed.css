@@ -47,8 +47,8 @@
   background-color: transparent;
   border-top: 25px solid #df3535;
   border-bottom: 25px solid #df3535;
-  border-left: 25px solid #df3535;
-  border-right: 25px solid #df3535;
+  border-left: 35px solid #df3535;
+  border-right: 35px solid #df3535;
   transition: border-top 2s ease, border-bottom 2s ease, border-left 2s ease,
     border-right 2s ease;
   z-index: 8;

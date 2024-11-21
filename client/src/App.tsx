@@ -106,6 +106,7 @@ function App() {
     <div className="app-container">
       <section className="pokeclosed-section">
         <Pokeclosed />
+        <section className="pokeball-container" />
       </section>
       <div className="app">
         <nav className="search-bar-container">
