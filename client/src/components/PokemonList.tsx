@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import Modal from "./Modal";
 
-interface Props {
+interface PokemonProps {
   name: string;
   id: number;
   img: string;
 }
 
-function PokemonList(props: Props) {
+function PokemonList(props: PokemonProps) {
   const { name, id, img } = props;
 
   //ma modale alterne entre avoir des données et ne pas en avoir (donc avant que je clique sur une card et après avoir cliqué)
@@ -54,8 +54,10 @@ function PokemonList(props: Props) {
       //je récupère le ou les types des pokémons
       const res2 = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
       const typePokemon = res2.data.types;
-      // biome-ignore lint/suspicious/noExplicitAny: <je sais pas quoi mettre comme type et j'en ai marre de voir une erreur donc je l'ignore>
-      const typesList = typePokemon.map((typeInfo: any) => typeInfo.type.name);
+
+      const typesList = typePokemon.map(
+        (typeInfo: { type: { name: string } }) => typeInfo.type.name,
+      );
 
       //je crée une constante pour chaque statistique
       const hp = res2.data.stats[0].base_stat;

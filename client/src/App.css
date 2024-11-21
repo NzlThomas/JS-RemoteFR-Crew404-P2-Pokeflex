@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Flexo-Medium";
-  src: url("./fonts/Flexo-Medium.ttf") format("truetype");
+  src: url("/fonts/Flexo-Medium.ttf") format("truetype");
   font-family: "Montserrat";
   src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
