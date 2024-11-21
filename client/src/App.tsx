@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import PokemonCardTest from "./components/PokemonCardTest";
 import "./App.css";
 import axios from "axios";
 import Pokeclosed from "./components/PokeflexClosed";
@@ -115,7 +114,6 @@ function App() {
           </div>
         )}
         {selectedResult && <div>Résultat sélectionné: {selectedResult}</div>}
-        <PokemonCardTest />
         <section className="app">
           <PokemonCards pokemons={pokemons} />
           <button
@@ -126,6 +124,13 @@ function App() {
             Plus de pokémon
           </button>
         </section>
+        <button
+          onClick={handleNextPage}
+          type="button"
+          className="seemore-button-section"
+        >
+          Plus de pokémon
+        </button>
       </div>
     </div>
   );
