@@ -94,10 +94,8 @@ function PokemonList(props: Props) {
           const pokemonHome = await axios.get(
             `https://pokeapi.co/api/v2/pokemon/${baseForm}/`,
           );
-          //je stocke les données de la page de base
-          const homeResponse = pokemonHome.data;
           //je récupère le sprite du pokémon et le stocke dans ma variable
-          baseSprite = homeResponse.sprites.front_default;
+          baseSprite = pokemonHome.data.sprites.front_default;
           //
           //
           //
@@ -105,13 +103,13 @@ function PokemonList(props: Props) {
           //je récupère le nom de la second évolution du pokémon
           secondForm = evolutionData.chain?.evolves_to[0]?.species?.name;
           //je retrouve la page api de base en pokemon/nom
-          const secondPokemonHome = await axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${secondForm}/`,
-          );
-          //je stocke les données de la page de base
-          const secondHomeResponse = secondPokemonHome.data;
-          //je récupère le sprite du pokémon et le stocke dans ma variable
-          secondSprite = secondHomeResponse.sprites.front_default;
+          if (secondForm) {
+            const secondPokemonHome = await axios.get(
+              `https://pokeapi.co/api/v2/pokemon/${secondForm}/`,
+            );
+            //je récupère le sprite du pokémon et le stocke dans ma variable
+            secondSprite = secondPokemonHome.data.sprites.front_default;
+          }
           //
           //
           //
@@ -120,13 +118,13 @@ function PokemonList(props: Props) {
           thirdForm =
             evolutionData.chain?.evolves_to[0]?.evolves_to[0]?.species?.name;
           //je retrouve la page api de base en pokemon/nom
-          const thirdPokemonHome = await axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${thirdForm}/`,
-          );
-          //je stocke les données de la page de base
-          const thirdHomeResponse = thirdPokemonHome.data;
-          //je récupère le sprite du pokémon et le stocke dans ma variable
-          thirdSprite = thirdHomeResponse.sprites.front_default;
+          if (thirdForm) {
+            const thirdPokemonHome = await axios.get(
+              `https://pokeapi.co/api/v2/pokemon/${thirdForm}/`,
+            );
+            //je récupère le sprite du pokémon et le stocke dans ma variable
+            thirdSprite = thirdPokemonHome.data.sprites.front_default;
+          }
         } else {
           console.error("L'URL de la chaîne d'évolution est manquante");
         }
@@ -135,25 +133,25 @@ function PokemonList(props: Props) {
       }
 
       //je dis quelles données vont être contenues dans le state de modalData
-      setModalData({
+      return setModalData({
         name,
         id,
         img,
         description: descriptionPokemon.flavor_text,
         types: typesList,
-        hp: hp,
-        atk: atk,
-        atkSpe: atkSpe,
-        def: def,
-        defSpe: defSpe,
-        speed: speed,
+        hp,
+        atk,
+        atkSpe,
+        def,
+        defSpe,
+        speed,
         cry: cry,
         baseForm: baseForm,
-        secondForm: secondForm,
-        thirdForm: thirdForm,
-        baseSprite: baseSprite,
-        secondSprite: secondSprite,
-        thirdSprite: thirdSprite,
+        secondForm: secondForm || null,
+        thirdForm: thirdForm || null,
+        baseSprite: baseSprite || null,
+        secondSprite: secondSprite || null,
+        thirdSprite: thirdSprite || null,
       });
     } catch (error) {
       console.error(error);
