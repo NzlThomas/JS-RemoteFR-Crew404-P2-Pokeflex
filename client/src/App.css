@@ -29,6 +29,40 @@ body {
   z-index: -2;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 1200px;
+  height: 90vh;
+  border: none;
+  padding: 20px;
+  position: relative;
+}
+
+.pokeball-container {
+  position: fixed;
+  bottom: 60px;
+  right: 70px;
+  width: 60px;
+  height: 70px;
+  background-image: url("/pokeball.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
 h1 {
   font-family: "Flexo-Medium", sans-serif;
   font-size: 30px;
@@ -108,5 +142,26 @@ h1 {
 }
 
 .app {
-  margin: 0px;
+  position: relative;
+  min-width: 100vh;
+}
+
+.search-bar-container {
+  z-index: 5;
+}
+
+.search-results-container {
+  position: absolute;
+  top: calc(15% + 3% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.pokemon-display {
+  position: relative;
+  z-index: 1;
 }

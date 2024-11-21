@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-
 import "./App.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
@@ -31,6 +31,10 @@ function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [nextUrl, setNextUrl] = useState("");
 
+  // Fonction pour gérer la recherche par type
+  const [selectedType, setSelectedType] = useState<IndexType | null>(null);
+  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>([]);
+
   useEffect(() => {
     const getPokemon = async () => {
       const res = await axios.get(
@@ -52,10 +56,6 @@ function App() {
     };
     getPokemon();
   }, []);
-
-  // Fonction pour gérer la recherche par type
-  const [selectedType, setSelectedType] = useState<IndexType | null>(null);
-  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>([]);
 
   useEffect(() => {
     const fetchPokemonsByType = async (
@@ -113,7 +113,7 @@ function App() {
   const [results, setResults] = useState<Result[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [showResults, setShowResults] = useState(false);
-  const [selectedResult, setSelectedResult] = useState<string | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
   // Gestion de la navigation au clavier
   const handleKeyNavigation = (key: string) => {
@@ -127,9 +127,25 @@ function App() {
   };
 
   // Gestion du clic sur un résultat
-  const handleResultClick = (result: Result) => {
-    setSelectedResult(result.name);
+  const handleResultClick = async (result: Result) => {
     setShowResults(false);
+    try {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${result.name}`,
+      );
+      setSelectedPokemon(response.data);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des détails du Pokémon:",
+        error,
+      );
+      setSelectedPokemon(null);
+    }
+  };
+
+  // Fonction pour réinitialiser la sélection
+  const resetSelection = () => {
+    setSelectedPokemon(null);
   };
 
   return (
@@ -137,6 +153,7 @@ function App() {
       <div className="app-container">
         <section className="pokeclosed-section">
           <Pokeclosed />
+          <section className="pokeball-container" />
         </section>
         <div className="app">
           <nav className="search-bar-container">
@@ -150,29 +167,56 @@ function App() {
             </section>
           </nav>
 
-          {showResults && (
-            <div className="search-result">
-              <SearchResultsList
-                results={results}
-                selectedIndex={selectedIndex}
-                setSelectedIndex={setSelectedIndex}
-                setShowResults={setShowResults}
-                onClick={handleResultClick}
-              />
-            </div>
-          )}
-          {selectedResult && <div>Résultat sélectionné: {selectedResult}</div>}
-          <section className="app">
-            <PokemonCards pokemons={filteredPokemons} />
-            <button
-              onClick={handleNextPage}
-              type="button"
-              className="seemore-button-section"
-            >
-              Plus de pokémon
-            </button>
+          <div className="search-results-container">
+            {showResults && (
+              <div className="search-result">
+                <SearchResultsList
+                  results={results}
+                  selectedIndex={selectedIndex}
+                  setSelectedIndex={setSelectedIndex}
+                  setShowResults={setShowResults}
+                  onClick={handleResultClick}
+                />
+              </div>
+            )}
+          </div>
+
+          <section className="pokemon-display">
+            {selectedPokemon ? (
+              <>
+                <PokemonCards pokemons={filteredPokemons} />
+                <button
+                  onClick={resetSelection}
+                  type="button"
+                  className="reset-button"
+                >
+                  Retour à la liste
+                </button>
+              </>
+            ) : (
+              <>
+                <PokemonCards pokemons={pokemons} />
+                <button
+                  onClick={handleNextPage}
+                  type="button"
+                  className="seemore-button-section"
+                >
+                  Plus de pokémons
+                </button>
+              </>
+            )}
           </section>
+          <button
+            onClick={handleNextPage}
+            type="button"
+            className="seemore-button-section"
+          >
+            Plus de pokémon
+          </button>
         </div>
+        <Link to="/trainers">
+          Découvrez en plus sur les différents Dresseurs ici !
+        </Link>
       </div>
     </TypeContext.Provider>
   );
