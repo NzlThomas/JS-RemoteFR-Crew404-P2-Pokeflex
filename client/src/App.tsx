@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
@@ -158,6 +159,9 @@ function App() {
           )}
         </section>
       </div>
+      <Link to="/trainers">
+        Découvrez en plus sur les différents Dresseurs ici !
+      </Link>
     </div>
   );
 }
