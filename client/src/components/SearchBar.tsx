@@ -56,7 +56,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   // Gestion du changement de l'input
   const handleChange = (value: string) => {
     setInput(value);
-    if (value) {
+    if (value.length >= 3 && value) {
       fetchData(value);
       setShowResults(true);
     } else {
