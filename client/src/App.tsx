@@ -184,7 +184,7 @@ function App() {
           <section className="pokemon-display">
             {selectedPokemon ? (
               <>
-                <PokemonCards pokemons={filteredPokemons} />
+                <PokemonCards pokemons={[selectedPokemon]} />
                 <button
                   onClick={resetSelection}
                   type="button"
@@ -195,7 +195,7 @@ function App() {
               </>
             ) : (
               <>
-                <PokemonCards pokemons={pokemons} />
+                <PokemonCards pokemons={filteredPokemons} />
                 <button
                   onClick={handleNextPage}
                   type="button"
