@@ -5,6 +5,8 @@ import "../Modal.css";
 //ne retourne rien, donc fonction fléchée suivie de "void", si jamais on avait une fonction capitalize, elle retournerai un string par exemple donc on pourrait typer en disant "closeModal:  string;"
 interface ModalProps {
   closeModal: (closeModal: boolean) => void;
+  showFirstArrow: boolean;
+  showSecondArrow: boolean;
   selectionData: {
     name: string;
     id: number;
@@ -27,7 +29,12 @@ interface ModalProps {
   };
 }
 
-function Modal({ closeModal, selectionData }: ModalProps) {
+function Modal({
+  closeModal,
+  selectionData,
+  showFirstArrow,
+  showSecondArrow,
+}: ModalProps) {
   //modification de l'état sur false pour que la modale ne soit plus affichée
   const handleClick = () => {
     closeModal(false);
@@ -60,7 +67,7 @@ function Modal({ closeModal, selectionData }: ModalProps) {
       <div className="modal-container">
         <header className="name-button-container">
           <section className="name-container">
-            <h1>{name}</h1>
+            <h1 className="capitalize-text">{name}</h1>
             <h2>N°{id}</h2>
           </section>
           <div className="close-button-container">
@@ -73,7 +80,7 @@ function Modal({ closeModal, selectionData }: ModalProps) {
         <div className="entry-infos-container">
           <section className="sprite-type-container">
             <img alt={name} src={img} className="main-sprite" />
-            <h3>{types.join("/")}</h3>
+            <h3 className="capitalize-text">{types.join("/")}</h3>
             <audio controls className="cry-button">
               <source src={cry} type="audio/ogg" />
               <track kind="captions" />
@@ -111,23 +118,37 @@ function Modal({ closeModal, selectionData }: ModalProps) {
           </div>
         </div>
 
-        <section className="evolution-container">
+        <section
+          className={`evolution-container ${!showFirstArrow && !showSecondArrow ? "one-sprite" : !showSecondArrow ? "two-sprites" : ""}`}
+        >
           <div className="evolution-entry">
-            <h5>{baseForm}</h5>
+            <h5
+              className={`evolution-name ${!showFirstArrow && !showSecondArrow ? "no-capitalize" : ""}`}
+            >{`${!showFirstArrow && !showSecondArrow ? "This Pokémon has no evolutions." : `${baseForm}`}`}</h5>
             <img alt={baseForm} src={baseSprite} className="evolve-sprite" />
           </div>
-          <img alt="flèche" src={arrow} className="evolution-arrow" />
+          <img
+            alt="flèche"
+            src={arrow}
+            className={`evolution-arrow ${!showFirstArrow ? "display-none" : ""}`}
+          />
           <div className="evolution-entry">
-            <h5>{secondForm}</h5>
+            <h5 className="evolution-name">{secondForm}</h5>
             <img
               alt={secondForm}
               src={secondSprite}
               className="evolve-sprite"
             />
           </div>
-          <img alt="flèche" src={arrow} className="evolution-arrow" />
-          <div className="evolution-entry">
-            <h5>{thirdForm}</h5>
+          <img
+            alt="flèche"
+            src={arrow}
+            className={`evolution-arrow ${!showSecondArrow ? "display-none" : ""}`}
+          />
+          <div
+            className={`evolution-entry ${!showSecondArrow ? "display-none" : ""}`}
+          >
+            <h5 className="evolution-name">{thirdForm}</h5>
             <img alt={thirdForm} src={thirdSprite} className="evolve-sprite" />
           </div>
         </section>

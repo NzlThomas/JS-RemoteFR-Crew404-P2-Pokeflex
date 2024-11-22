@@ -36,6 +36,9 @@ function PokemonList(props: PokemonProps) {
     thirdSprite?: string;
   } | null>(null);
 
+  //je déclare mes deux states qui vont alterner entre true et false pour définir si on affiche la flèche dans la partie évolution
+  const [showFirstArrow, setShowFirstArrow] = useState(false);
+  const [showSecondArrow, setShowSecondArrow] = useState(false);
   // création du state pour alterner entre false et true (donc modale cachée vs affichée)
   const [displayModal, setDisplayModal] = useState(false);
 
@@ -111,6 +114,8 @@ function PokemonList(props: PokemonProps) {
             );
             //je récupère le sprite du pokémon et le stocke dans ma variable
             secondSprite = secondPokemonHome.data.sprites.front_default;
+
+            setShowFirstArrow(true);
           }
           //
           //
@@ -126,6 +131,8 @@ function PokemonList(props: PokemonProps) {
             );
             //je récupère le sprite du pokémon et le stocke dans ma variable
             thirdSprite = thirdPokemonHome.data.sprites.front_default;
+
+            setShowSecondArrow(true);
           }
         } else {
           console.error("L'URL de la chaîne d'évolution est manquante");
@@ -176,7 +183,12 @@ function PokemonList(props: PokemonProps) {
         <p className="pokemon-id"># {id}</p>
       </section>
       {displayModal && modalData && (
-        <Modal closeModal={setDisplayModal} selectionData={modalData} />
+        <Modal
+          closeModal={setDisplayModal}
+          selectionData={modalData}
+          showFirstArrow={showFirstArrow}
+          showSecondArrow={showSecondArrow}
+        />
       )}
     </div>
   );

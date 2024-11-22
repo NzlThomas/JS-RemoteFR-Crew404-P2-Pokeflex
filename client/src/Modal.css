@@ -110,6 +110,15 @@
   align-items: center;
 }
 
+.evolution-name {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+.capitalize-text {
+  text-transform: capitalize;
+}
+
 .evolution-arrow {
   width: 10%;
 }
@@ -126,6 +135,23 @@
   background-color: rgb(141, 141, 141);
   padding: 1rem;
   border-radius: 30px;
+}
+
+.display-none {
+  display: none;
+}
+
+.one-sprite {
+  flex-direction: column;
+  width: 50%;
+}
+
+.two-sprites {
+  width: 70%;
+}
+
+.no-capitalize {
+  text-transform: none;
 }
 
 @media screen and (max-width: 1024px) {
