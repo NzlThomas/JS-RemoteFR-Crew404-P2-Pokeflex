@@ -62,11 +62,17 @@ function Modal({
     thirdSprite,
   } = selectionData;
 
+  //J'initialise ma constante qui va contenir le premier type du pokémon sélectionné, elle servira de comparaison pour définir la couleur de fond du sprite
+  const typeBg = types[0];
+
   return (
     <div className="modal-background">
       <div className="modal-container">
         <header className="name-button-container">
-          <section className="name-container">
+          <section
+            className="name-container"
+            id={`${types[0] === typeBg ? `${typeBg}` : ""}`}
+          >
             <h1 className="capitalize-text">{name}</h1>
             <h2>N°{id}</h2>
           </section>
@@ -79,8 +85,12 @@ function Modal({
 
         <div className="entry-infos-container">
           <section className="sprite-type-container">
-            <img alt={name} src={img} className="main-sprite" />
-            <h3 className="capitalize-text">{types.join("/")}</h3>
+            <img
+              alt={name}
+              src={img}
+              className={`main-sprite ${types[0] === typeBg ? `${typeBg}` : ""}`}
+            />
+            <h3 className="capitalize-text type-list">{types.join("/")}</h3>
             <audio controls className="cry-button">
               <source src={cry} type="audio/ogg" />
               <track kind="captions" />
