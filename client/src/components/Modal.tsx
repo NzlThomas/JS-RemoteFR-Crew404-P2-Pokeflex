@@ -1,5 +1,6 @@
 import arrow from "../assets/images/arrow.png";
 import "../Modal.css";
+import { IoCloseSharp } from "react-icons/io5";
 import eeveelutions from "../assets/images/eeveelutions-image.png";
 
 //typage de ma fonction closeModal (entre parenthèse closeModal peut avoir n'importe quel nom ça ne change pas le résultat), on dit qu'elle est de valeur boolean (true ou false) mais qu'elle
@@ -82,7 +83,11 @@ function Modal({
           </section>
           <div className="close-button-container">
             <button onClick={handleClick} type="button" id="close-button-style">
-              X
+              <IoCloseSharp
+                onClick={handleClick}
+                id="close-button-style"
+                size={40}
+              />
             </button>
           </div>
         </header>
