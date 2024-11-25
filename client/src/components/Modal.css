@@ -1,9 +1,17 @@
+#root {
+  --pokeRed: #df3535;
+  --pokeBlack: rgba(34, 34, 34, 0.966);
+  --pokeGrey: #828282;
+}
+
 * {
   box-sizing: border-box;
 }
 
+/* gestion de tout ce qui est relatif à la modale */
+
 .modal-background {
-  background-color: rgba(46, 46, 46, 0.945);
+  background-color: var(--pokeBlack);
   position: fixed;
   left: 50%;
   top: 50%;
@@ -11,6 +19,9 @@
   width: 60%;
   border: 2px solid rgb(173, 173, 173);
   border-radius: 20px;
+  max-height: 85vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .modal-container {
@@ -30,10 +41,13 @@
 }
 
 #close-button-style {
-  padding: 0.5rem;
-  margin-top: 1rem;
-  margin-right: 1rem;
   border-radius: 5px;
+  margin: 1rem;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .name-container {
@@ -87,6 +101,21 @@
   padding-top: 1rem;
 }
 
+.display-eevee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(141, 141, 141);
+  width: 50%;
+  margin: 2rem auto;
+  border-radius: 30px;
+  padding-top: 1rem;
+}
+
+#eeveelutions {
+  width: 70%;
+}
+
 .pokemon-stats {
   display: flex;
   gap: 2rem;
@@ -110,6 +139,15 @@
   align-items: center;
 }
 
+.evolution-name {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+.capitalize-text {
+  text-transform: capitalize;
+}
+
 .evolution-arrow {
   width: 10%;
 }
@@ -127,6 +165,228 @@
   padding: 1rem;
   border-radius: 30px;
 }
+
+.display-none {
+  display: none;
+}
+
+.one-sprite {
+  flex-direction: column;
+  width: 50%;
+}
+
+.two-sprites {
+  width: 70%;
+}
+
+/* gestion des couleurs en fonction des statistiques du pokémon */
+
+.low {
+  color: rgb(255, 134, 134);
+  font-weight: bolder;
+}
+
+.medium {
+  color: rgb(255, 190, 50);
+  font-weight: bold;
+}
+
+.high {
+  color: rgb(76, 253, 70);
+  font-weight: bold;
+}
+
+.no-capitalize {
+  text-transform: none;
+}
+
+.type-list {
+  margin-top: 1rem;
+}
+
+/* Cette partie sert à définir la couleur de fond et de bordure en fonction du type du pokémon : les classes correspondent aux background color, les id aux bordures des noms de pokémons */
+
+.normal {
+  background-color: #a8a878;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(168, 168, 120, 0.769);
+}
+
+#normal {
+  border: solid #a8a878 3px;
+}
+
+.fire {
+  background-color: #f08030;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(240, 128, 48, 0.769);
+}
+
+#fire {
+  border: solid #f08030 3px;
+}
+
+.water {
+  background-color: #6890f0;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(104, 144, 240, 0.769);
+}
+
+#water {
+  border: solid #6890f0 3px;
+}
+
+.grass {
+  background-color: #78c850;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(120, 200, 80, 0.769);
+}
+
+#grass {
+  border: solid #78c850 3px;
+}
+
+.electric {
+  background-color: #f8d030;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(248, 208, 48, 0.769);
+}
+
+#electric {
+  border: solid #f8d030 3px;
+}
+
+.ice {
+  background-color: #98d8d8;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(152, 216, 216, 0.769);
+}
+
+#ice {
+  border: solid #98d8d8 3px;
+}
+
+.ground {
+  background-color: #e0c068;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(224, 192, 104, 0.769);
+}
+
+#ground {
+  border: solid #e0c068 3px;
+}
+
+.flying {
+  background-color: #a890f0;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(168, 144, 240, 0.769);
+}
+
+#flying {
+  border: solid #a890f0 3px;
+}
+
+.poison {
+  background-color: #a040a0;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(160, 64, 160, 0.769);
+}
+
+#poison {
+  border: solid #a040a0 3px;
+}
+
+.fighting {
+  background-color: #c03028;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(192, 48, 40, 0.769);
+}
+
+#fighting {
+  border: solid #c03028 3px;
+}
+
+.psychic {
+  background-color: #f85888;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(248, 88, 136, 0.769);
+}
+
+#psychic {
+  border: solid #f85888 3px;
+}
+
+.dark {
+  background-color: #705848;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(112, 88, 72, 0.769);
+}
+
+#dark {
+  border: solid #705848 3px;
+}
+
+.rock {
+  background-color: #b8a038;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(184, 160, 56, 0.769);
+}
+
+#rock {
+  border: solid #b8a038 3px;
+}
+
+.bug {
+  background-color: #a8b820;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(168, 184, 32, 0.769);
+}
+
+#bug {
+  border: solid #a8b820 3px;
+}
+
+.ghost {
+  background-color: #705898;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(112, 88, 152, 0.769);
+}
+
+#ghost {
+  border: solid #705898 3px;
+}
+
+.steel {
+  background-color: #b8b8d0;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(184, 184, 208, 0.769);
+}
+
+#steel {
+  border: solid #b8b8d0 3px;
+}
+
+.dragon {
+  background-color: #7038f8;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(112, 56, 248, 0.769);
+}
+
+#dragon {
+  border: solid #7038f8 3px;
+}
+
+.fairy {
+  background-color: #ffaec9;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 5px rgba(255, 174, 201, 0.769);
+}
+
+#fairy {
+  border: solid #ffaec9 3px;
+}
+
+/* partie responsive */
 
 @media screen and (max-width: 1024px) {
   .name-container {
@@ -178,5 +438,9 @@
 
   .evolution-arrow {
     width: 10%;
+  }
+
+  .display-none {
+    display: none;
   }
 }
