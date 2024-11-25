@@ -23,7 +23,6 @@ function Trainerpage() {
           ))}
         </section>
       </div>
-
     </main>
   );
 }
