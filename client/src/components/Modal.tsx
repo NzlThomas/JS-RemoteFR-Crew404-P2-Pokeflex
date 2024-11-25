@@ -1,5 +1,5 @@
 import arrow from "../assets/images/arrow.png";
-import "../Modal.css";
+import "./Modal.css";
 import { IoCloseSharp } from "react-icons/io5";
 import eeveelutions from "../assets/images/eeveelutions-image.png";
 
