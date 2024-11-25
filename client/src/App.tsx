@@ -6,7 +6,6 @@ import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
 import { SearchBar } from "./components/SearchBar";
 import SearchPokemonType from "./components/SearchPokemonType";
-import { SearchResultsList } from "./components/SearchResultsList";
 import type {
   IndexType,
   PokemonTypeListResponse,
@@ -128,12 +127,12 @@ function App() {
 
   // Gestion du clic sur un résultat
   const handleResultClick = async (result: Result) => {
-    setShowResults(false);
     try {
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${result.name}`,
       );
       setSelectedPokemon(response.data);
+      setShowResults(false);
     } catch (error) {
       console.error(
         "Erreur lors de la récupération des détails du Pokémon:",
@@ -161,25 +160,30 @@ function App() {
               setResults={setResults}
               onKeyNavigation={handleKeyNavigation}
               setShowResults={setShowResults}
+              showResults={showResults}
+              results={results}
+              selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
+              handleResultClick={handleResultClick}
             />
             <section className="rechercher-par-type">
               <SearchPokemonType />
             </section>
           </nav>
 
-          <div className="search-results-container">
+          {/* <div className="search-results-container">
             {showResults && (
               <div className="search-result">
                 <SearchResultsList
                   results={results}
                   selectedIndex={selectedIndex}
                   setSelectedIndex={setSelectedIndex}
-                  setShowResults={setShowResults}
                   onClick={handleResultClick}
+                  setShowResults={setShowResults}
                 />
               </div>
             )}
-          </div>
+          </div> */}
 
           <section className="pokemon-display">
             {selectedPokemon ? (

@@ -26,9 +26,10 @@ const Pokeclosed = () => {
   return (
     <div className="background-container">
       <button
-        className={`rectangle ${isSplit ? "split" : ""} ${
-          clicked ? "clicked" : ""
-        } ${isHiddenBackground ? "hidden-background" : ""}`}
+        className={`rectangle
+          ${isSplit ? "split" : ""}
+          ${clicked ? "clicked" : ""}
+          ${isHiddenBackground ? "hidden-background" : ""}`}
         onClick={handleClick}
         onKeyDown={handleKeyPress}
         type="button"
