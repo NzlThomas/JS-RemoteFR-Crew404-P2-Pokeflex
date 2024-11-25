@@ -64,6 +64,9 @@ function Modal({
     thirdSprite,
   } = selectionData;
 
+  // supprime les caractères non imprimables
+  const cleanDescription = description.replace(/[^ -~]/g, " ");
+
   //J'initialise ma constante qui va contenir le premier type du pokémon sélectionné, elle servira de comparaison pour définir la couleur de fond du sprite
   const typeBg = types[0];
 
@@ -107,7 +110,7 @@ function Modal({
           </section>
 
           <div className="desc-stats-container">
-            <p className="pokemon-description">{description}</p>
+            <p className="pokemon-description">{cleanDescription}</p>
             <section className="pokemon-stats">
               <section className="stats-values">
                 <p

@@ -1,4 +1,5 @@
 import "./SearchResult.css";
+import { useEffect, useState } from "react";
 
 // Définition des props attendues par le composant SearchResult
 interface Result {
@@ -19,6 +20,20 @@ export const SearchResult: React.FC<SearchResultProps> = ({
   onMouseEnter,
   onClick,
 }) => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+    onClick();
+  };
+
+  useEffect(() => {
+    if (clicked) {
+      const timer = setTimeout(() => setClicked(false), 200);
+      return () => clearTimeout(timer);
+    }
+  }, [clicked]);
+
   // Gestion de l'appui sur la touche Entrée
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === "Enter") {
@@ -31,7 +46,7 @@ export const SearchResult: React.FC<SearchResultProps> = ({
       type="button"
       className={`search-result ${isSelected ? "selected" : ""}`}
       onMouseEnter={onMouseEnter}
-      onClick={onClick}
+      onClick={handleClick}
       onKeyDown={handleKeyDown}
     >
       {result.name}
