@@ -1,5 +1,6 @@
 import arrow from "../assets/images/arrow.png";
 import "../Modal.css";
+import eeveelutions from "../assets/images/eeveelutions-image.png";
 
 //typage de ma fonction closeModal (entre parenthèse closeModal peut avoir n'importe quel nom ça ne change pas le résultat), on dit qu'elle est de valeur boolean (true ou false) mais qu'elle
 //ne retourne rien, donc fonction fléchée suivie de "void", si jamais on avait une fonction capitalize, elle retournerai un string par exemple donc on pourrait typer en disant "closeModal:  string;"
@@ -204,7 +205,7 @@ function Modal({
         </div>
 
         <section
-          className={`evolution-container ${!showFirstArrow && !showSecondArrow ? "one-sprite" : !showSecondArrow ? "two-sprites" : ""}`}
+          className={`evolution-container ${!showFirstArrow && !showSecondArrow ? "one-sprite" : !showSecondArrow ? "two-sprites" : ""} ${id === Number(133) || id === Number(134) || id === Number(135) || id === Number(136) || id === Number(196) || id === Number(197) || id === Number(470) || id === Number(471) || id === Number(700) ? "display-none" : ""}`}
         >
           <div className="evolution-entry">
             <h5
@@ -236,6 +237,15 @@ function Modal({
             <h5 className="evolution-name">{thirdForm}</h5>
             <img alt={thirdForm} src={thirdSprite} className="evolve-sprite" />
           </div>
+        </section>
+        <section
+          className={`evolution-container ${id === Number(133) || id === Number(134) || id === Number(135) || id === Number(136) || id === Number(196) || id === Number(197) || id === Number(470) || id === Number(471) || id === Number(700) ? "display-eevee" : "display-none"}`}
+        >
+          <img
+            alt="List of Eevee's evolutions."
+            src={eeveelutions}
+            id="eeveelutions"
+          />
         </section>
       </div>
     </div>

@@ -19,6 +19,9 @@
   width: 60%;
   border: 2px solid rgb(173, 173, 173);
   border-radius: 20px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .modal-container {
@@ -93,6 +96,21 @@
   margin: 2rem auto;
   border-radius: 30px;
   padding-top: 1rem;
+}
+
+.display-eevee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(141, 141, 141);
+  width: 50%;
+  margin: 2rem auto;
+  border-radius: 30px;
+  padding-top: 1rem;
+}
+
+#eeveelutions {
+  width: 70%;
 }
 
 .pokemon-stats {
@@ -417,5 +435,9 @@
 
   .evolution-arrow {
     width: 10%;
+  }
+
+  .display-none {
+    display: none;
   }
 }
