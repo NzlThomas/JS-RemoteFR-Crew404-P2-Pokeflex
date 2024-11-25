@@ -10,17 +10,17 @@ function Trainerpage() {
           <h1>Pokémon Trainers</h1>
         </section>
         <section className="trainersCardsContainer">
-        {trainersdata.map((trainer) => (
-          <TrainerCards
-            key={trainer.id}
-            trainername={trainer.trainername}
-            trainerimg={trainer.trainerimg}
-            trainerdescription={trainer.trainerdescription}
-            trainerfav1={trainer.trainerfav1}
-            trainerfav2={trainer.trainerfav2}
-            trainerfav3={trainer.trainerfav3}
-          />      
-        ))}
+          {trainersdata.map((trainer) => (
+            <TrainerCards
+              key={trainer.id}
+              trainername={trainer.trainername}
+              trainerimg={trainer.trainerimg}
+              trainerdescription={trainer.trainerdescription}
+              trainerfav1={trainer.trainerfav1}
+              trainerfav2={trainer.trainerfav2}
+              trainerfav3={trainer.trainerfav3}
+            />
+          ))}
         </section>
       </div>
 
