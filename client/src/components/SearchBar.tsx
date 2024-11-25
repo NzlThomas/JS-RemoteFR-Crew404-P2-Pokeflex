@@ -128,7 +128,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             </div>
           )}
         </div>
-        {/* searchResultsList pos absolute bottom 5px (-5px :shrug:) */}
       </div>
     </div>
   );
