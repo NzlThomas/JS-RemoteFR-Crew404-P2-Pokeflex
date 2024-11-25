@@ -1,5 +1,5 @@
 import arrow from "../assets/images/arrow.png";
-import "../Modal.css";
+import "./Modal.css";
 
 //typage de ma fonction closeModal (entre parenthèse closeModal peut avoir n'importe quel nom ça ne change pas le résultat), on dit qu'elle est de valeur boolean (true ou false) mais qu'elle
 //ne retourne rien, donc fonction fléchée suivie de "void", si jamais on avait une fonction capitalize, elle retournerai un string par exemple donc on pourrait typer en disant "closeModal:  string;"
@@ -55,6 +55,9 @@ function Modal({ closeModal, selectionData }: ModalProps) {
     thirdSprite,
   } = selectionData;
 
+  // supprime les caractères non imprimables
+  const cleanDescription = description.replace(/[^ -~]/g, " ");
+
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -81,7 +84,7 @@ function Modal({ closeModal, selectionData }: ModalProps) {
           </section>
 
           <div className="desc-stats-container">
-            <p className="pokemon-description">{description}</p>
+            <p className="pokemon-description">{cleanDescription}</p>
             <section className="pokemon-stats">
               <section className="stats-values">
                 <p>{hp}</p>
