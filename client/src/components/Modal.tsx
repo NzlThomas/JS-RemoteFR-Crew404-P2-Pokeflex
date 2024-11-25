@@ -66,7 +66,10 @@ function Modal({
   const typeBg = types[0];
 
   return (
-    <div className="modal-background">
+    <div
+      className="modal-background"
+      id={`${types[0] === typeBg ? `${typeBg}` : ""}`}
+    >
       <div className="modal-container">
         <header className="name-button-container">
           <section
@@ -101,27 +104,99 @@ function Modal({
             <p className="pokemon-description">{description}</p>
             <section className="pokemon-stats">
               <section className="stats-values">
-                <p>{hp}</p>
+                <p
+                  className={
+                    Number(hp) >= Number(100)
+                      ? "high"
+                      : Number(hp) >= Number(60)
+                        ? "medium"
+                        : Number(hp) < Number(60)
+                          ? "low"
+                          : ""
+                  }
+                >
+                  {hp}
+                </p>
                 <h4>HP</h4>
               </section>
               <section className="stats-values">
-                <p>{atk}</p>
+                <p
+                  className={
+                    Number(atk) >= Number(100)
+                      ? "high"
+                      : Number(atk) >= Number(60)
+                        ? "medium"
+                        : Number(atk) < Number(60)
+                          ? "low"
+                          : ""
+                  }
+                >
+                  {atk}
+                </p>
                 <h4>Atk</h4>
               </section>
               <section className="stats-values">
-                <p>{atkSpe}</p>
+                <p
+                  className={
+                    Number(atkSpe) >= Number(100)
+                      ? "high"
+                      : Number(atkSpe) >= Number(60)
+                        ? "medium"
+                        : Number(atkSpe) < Number(60)
+                          ? "low"
+                          : ""
+                  }
+                >
+                  {atkSpe}
+                </p>
                 <h4>Spe. Atk</h4>
               </section>
               <section className="stats-values">
-                <p>{def}</p>
+                <p
+                  className={
+                    Number(def) >= Number(100)
+                      ? "high"
+                      : Number(def) >= Number(60)
+                        ? "medium"
+                        : Number(def) < Number(60)
+                          ? "low"
+                          : ""
+                  }
+                >
+                  {def}
+                </p>
                 <h4>Def</h4>
               </section>
               <section className="stats-values">
-                <p>{defSpe}</p>
+                <p
+                  className={
+                    Number(defSpe) >= Number(100)
+                      ? "high"
+                      : Number(defSpe) >= Number(60)
+                        ? "medium"
+                        : Number(defSpe) < Number(60)
+                          ? "low"
+                          : ""
+                  }
+                >
+                  {defSpe}
+                </p>
                 <h4>Spe. Def</h4>
               </section>
               <section className="stats-values">
-                <p>{speed}</p>
+                <p
+                  className={
+                    Number(speed) >= Number(100)
+                      ? "high"
+                      : Number(speed) >= Number(60)
+                        ? "medium"
+                        : Number(speed) < Number(60)
+                          ? "low"
+                          : ""
+                  }
+                >
+                  {speed}
+                </p>
                 <h4>Speed</h4>
               </section>
             </section>

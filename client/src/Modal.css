@@ -8,6 +8,8 @@
   box-sizing: border-box;
 }
 
+/* gestion de tout ce qui est relatif à la modale */
+
 .modal-background {
   background-color: var(--pokeBlack);
   position: fixed;
@@ -154,6 +156,23 @@
 
 .two-sprites {
   width: 70%;
+}
+
+/* gestion des couleurs en fonction des statistiques du pokémon */
+
+.low {
+  color: rgb(255, 134, 134);
+  font-weight: bolder;
+}
+
+.medium {
+  color: rgb(255, 190, 50);
+  font-weight: bold;
+}
+
+.high {
+  color: rgb(76, 253, 70);
+  font-weight: bold;
 }
 
 .no-capitalize {
@@ -345,6 +364,8 @@
 #fairy {
   border: solid #ffaec9 3px;
 }
+
+/* partie responsive */
 
 @media screen and (max-width: 1024px) {
   .name-container {
