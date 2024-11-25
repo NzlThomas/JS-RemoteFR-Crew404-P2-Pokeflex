@@ -90,6 +90,7 @@ h1 {
   background-color: var(--pokeGrey);
   border-radius: 25px;
   margin: 2em;
+  cursor: pointer;
 }
 
 .pokemon-name {
