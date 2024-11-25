@@ -1,0 +1,15 @@
+.load {
+  display: flex;
+  flex-direction: column;
+  padding: 20vh;
+  margin: 20vh;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.imgload {
+  max-width: none;
+  max-height: none;
+  width: 20em;
+  height: auto;
+}
