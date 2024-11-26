@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import arrow from "../assets/images/arrow.png";
 import "./Modal.css";
 import { IoCloseSharp } from "react-icons/io5";
@@ -37,6 +38,14 @@ function Modal({
   showFirstArrow,
   showSecondArrow,
 }: ModalProps) {
+  //constante qui permet de faire en sorte que l'audio du cri des pokémons soit au minimum par défaut
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.1;
+    }
+  }, []);
   //modification de l'état sur false pour que la modale ne soit plus affichée
   const handleClick = () => {
     closeModal(false);
@@ -103,7 +112,7 @@ function Modal({
               className={`main-sprite ${types[0] === typeBg ? `${typeBg}` : ""}`}
             />
             <h3 className="capitalize-text type-list">{types.join("/")}</h3>
-            <audio controls className="cry-button">
+            <audio controls className="cry-button" ref={audioRef}>
               <source src={cry} type="audio/ogg" />
               <track kind="captions" />
             </audio>
