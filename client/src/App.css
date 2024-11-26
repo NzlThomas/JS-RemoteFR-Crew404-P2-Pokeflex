@@ -16,6 +16,7 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -158,4 +159,13 @@ h1 {
 
 .pokemon-display {
   position: relative;
+}
+
+#up-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 60px;
+  right: 70px;
 }
