@@ -2,6 +2,7 @@ import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./searchBar.css";
 import axios from "axios";
+import { SearchResultsList } from "./SearchResultsList";
 
 // Définition des interfaces pour les types de données
 interface Pokemon {
@@ -18,12 +19,22 @@ interface SearchBarProps {
   setResults: React.Dispatch<React.SetStateAction<Result[]>>;
   onKeyNavigation: (key: string) => void;
   setShowResults: React.Dispatch<React.SetStateAction<boolean>>;
+  showResults: boolean;
+  results: Result[];
+  selectedIndex: number;
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
+  handleResultClick: (result: Result) => Promise<void>;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   setResults,
   onKeyNavigation,
   setShowResults,
+  showResults,
+  results,
+  selectedIndex,
+  setSelectedIndex,
+  handleResultClick,
 }) => {
   // État local pour stocker la valeur de l'input
   const [input, setInput] = useState("");
@@ -82,7 +93,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Node)
       ) {
-        setShowResults(false);
+        setTimeout(() => {
+          setShowResults(false);
+        }, 100);
       }
     };
 
@@ -102,6 +115,19 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}
         />
+        <div className="search-results-container">
+          {showResults && (
+            <div className="search-result">
+              <SearchResultsList
+                results={results}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+                onClick={handleResultClick}
+                setShowResults={setShowResults}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,37 +1,131 @@
-.trainercards {
-  width: 100%;
-  padding: 4vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+@font-face {
+  font-family: "Flexo-Medium";
+  src: url("/fonts/Flexo-Medium.ttf") format("truetype");
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.trainer-card {
-  width: 25%;
+body {
+  background-color: #df3535;
+}
+
+.trainers {
+  background-color: #222222;
+  border-radius: 8em;
+  margin: 5%;
+  @media screen and (min-width: 992px) {
+    margin: 1.5%;
+  }
+}
+
+.trainersContent {
+  padding: 2em;
+}
+
+.trainersTitle {
+  text-align: center;
+  padding: 5em;
+  font-family: "Montserrat", sans-serif;
+  @media screen and (min-width: 992px) {
+    padding: 8em;
+  }
+}
+
+.trainersTitle h1 {
+  font-size: 3em;
+  color: whitesmoke;
+  @media screen and (min-width: 992px) {
+    font-size: 4.5em;
+  }
+}
+
+.trainersCardsContainer {
+  margin: 2em 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-family: "Pokemon Solid", sans-serif;
+  gap: 5em;
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.trainer-cards {
+  width: 75%;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Flexo-Medium", sans-serif;
   background-color: grey;
-  border-radius: 25px;
+  border-radius: 2em;
   padding: 2em;
-  margin: 2em;
+  margin: 0em 10em;
+  @media screen and (min-width: 992px) {
+    width: 80%;
+    height: 50em;
+  }
 }
 
-.trainerimg {
-  width: 10em;
-  max-width: 10em;
+.trainerInfos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (min-width: 992px) {
+    padding: 1em;
+  }
 }
 
-img {
-  width: 6em;
-  max-width: 6em;
+.trainerPres {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5em 0;
 }
 
-p {
-  color: white;
-  white-space: normal;
-  width: 20em;
+.trainerName {
+  font-size: 3em;
+  color: whitesmoke;
+}
+
+.trainerImg {
+  height: 20em;
+  width: 16em;
+  align-items: start;
+  margin-top: 1.2em;
+}
+
+.trainerDescription {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 1.8em;
+  text-align: center;
+  margin: auto;
+  @media screen and (min-width: 992px) {
+    margin: auto 1em;
+    font-size: 2em;
+  }
+}
+
+.favPoke {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  @media screen and (min-width: 992px) {
+    padding: 0.5em;
+  }
+}
+
+.favPoke img {
+  height: 8.5em;
+  width: 7.6em;
+  margin: 1.2em;
+  @media screen and (min-width: 992px) {
+    height: 10em;
+    width: 8em;
+    margin: 2.5em;
+  }
 }
