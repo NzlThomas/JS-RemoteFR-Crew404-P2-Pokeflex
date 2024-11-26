@@ -191,14 +191,14 @@ function App() {
                   type="button"
                   className="seemore-button-section"
                 >
-                  Plus de pokémons
+                  More Pokemons
                 </button>
               </>
             )}
           </section>
         </div>
-        <Link to="/trainers">
-          Découvrez en plus sur les différents Dresseurs ici !
+        <Link to="/trainers" className="lien-trainer">
+          Learn more about the different Pokémon Trainers here!
         </Link>
       </div>
     </TypeContext.Provider>
