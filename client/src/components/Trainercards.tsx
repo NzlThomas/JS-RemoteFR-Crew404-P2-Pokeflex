@@ -25,7 +25,6 @@ function TrainerCards({
           </div>
           <p className="trainerDescription">{trainerdescription}</p>
         </section>
-
         <section className="favPoke">
           <img src={trainerfav1} alt={`Pokémon préféré de${trainername}`} />
           <img src={trainerfav2} alt={`Pokémon préféré de${trainername}`} />

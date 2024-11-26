@@ -2,7 +2,7 @@
   {
     "id": 1,
     "trainername": "Red",
-    "trainerdescription": "Red à remporté les 8 badges, vaincu le Conseil 4, puis le Maître. Il est donc actuellement le Maître du plateau Indigo",
+    "trainerdescription": "Red won all 8 badges, defeated Council 4, then the Master. He is now the Master of the Indigo tray",
     "trainerimg": "https://media.tenor.com/f7M_6Ou3TIAAAAAj/pokemon-red-red-sprite.gif",
     "trainerfav1": "https://projectpokemon.org/images/normal-sprite/pikachu.gif",
     "trainerfav2": "https://projectpokemon.org/images/normal-sprite/charizard.gif",
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "trainername": "Cynthia",
-    "trainerdescription": "Enfant, cette archéologue spécialiste des légendes et Maître de Sinnoh est partie explorer le monde avec un Pokéflex",
+    "trainerdescription": "As a child, this archaeologist specializing in legends and master of Sinnoh set off to explore the world with a Pokéflex",
     "trainerimg": "https://media.tenor.com/TnD8y7cA2uIAAAAi/pokemon-cynthia.gif",
     "trainerfav1": "https://projectpokemon.org/images/normal-sprite/garchomp.gif",
     "trainerfav2": "https://projectpokemon.org/images/normal-sprite/spiritomb.gif",
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "trainername": "Ludvina",
-    "trainerdescription": "Une jeune Dresseuse énergique qui aime la mode, les distractions, les voyages, et surtout, les combats Pokémon",
+    "trainerdescription": "An energetic young trainer who loves fashion, hobbies, travel and, above all, Pokémon battles",
     "trainerimg": "https://media.tenor.com/nOvK_kVQCQgAAAAi/pok%C3%A9mon-noir-et-blanc-pok%C3%A9mon.gif",
     "trainerfav1": "https://projectpokemon.org/images/normal-sprite/emboar.gif",
     "trainerfav2": "https://projectpokemon.org/images/normal-sprite/diancie.gif",
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "trainername": "N",
-    "trainerdescription": "Ce jeune homme aux pouvoirs particuliers est le roi déchu de la team Plasma. Il rêve d'un monde où humains et Pokémons vivraient ensemble en harmonie",
+    "trainerdescription": "This young man with special powers is the fallen king of Team Plasma. He dreams of a world where humans and Pokémon live in harmony",
     "trainerimg": "https://media.tenor.com/FH4xWxbhf2kAAAAi/pokemon.gif",
     "trainerfav1": "https://projectpokemon.org/images/normal-sprite/zekrom.gif",
     "trainerfav2": "https://projectpokemon.org/images/normal-sprite/zoroark.gif",
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "trainername": "Pieris",
-    "trainerdescription": "Amateur de jeux, ce membre du Conseil 4 d'Unys spécialiste des Pokémons Ténèbres se voit comme un esthète du hasard",
+    "trainerdescription": "A games enthusiast, this Unys 4 Council member and Pokémon Darkness specialist considers himself an aesthete of chance",
     "trainerimg": "https://media.tenor.com/aauAESZ3cTIAAAAi/pokemon.gif",
     "trainerfav1": "https://projectpokemon.org/images/normal-sprite/krookodile.gif",
     "trainerfav2": "https://projectpokemon.org/images/normal-sprite/drapion.gif",
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "trainername": "Iris",
-    "trainerdescription": "Une jeune fille joyeuse issue d'un peuple qui vit avec des Pokémons Dragon, Sa puissance est telle qu'elle est devenue Maître",
+    "trainerdescription": "A cheerful girl from a people who live with Pokémon dragons. Her power is such that she has become a Master",
     "trainerimg": "https://media.tenor.com/Q3Iks96Pn64AAAAj/iris-pokemon.gif",
     "trainerfav1": "https://projectpokemon.org/images/normal-sprite/haxorus.gif",
     "trainerfav2": "https://projectpokemon.org/images/normal-sprite/druddigon.gif",
