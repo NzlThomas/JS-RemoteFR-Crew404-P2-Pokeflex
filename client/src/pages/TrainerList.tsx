@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import trainersdata from "../../data/trainersdata.json";
 import TrainerCards from "../components/Trainercards";
 import "../components/Trainers.css";
-import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function Trainerpage() {
   const [loading, setLoading] = useState(true);
