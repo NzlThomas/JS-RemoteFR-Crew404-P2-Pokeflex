@@ -22,6 +22,7 @@
   max-height: 85vh;
   overflow-y: scroll;
   scrollbar-width: none;
+  z-index: 25;
 }
 
 .modal-container {
@@ -74,12 +75,14 @@
   align-items: center;
   width: 50%;
   justify-content: space-around;
+  font-family: "Montserrat", sans-serif;
 }
 
 .sprite-type-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .cry-button {
@@ -142,6 +145,7 @@
 .evolution-name {
   text-transform: capitalize;
   font-size: 1.2rem;
+  font-family: "Flexo-Medium", sans-serif;
 }
 
 .capitalize-text {
@@ -386,11 +390,15 @@
   border: solid #ffaec9 3px;
 }
 
-/* partie responsive */
+/* partie responsive  TELEPHONES */
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .name-container {
     width: 75%;
+  }
+
+  .evolution-name {
+    font-size: 10px;
   }
 
   .modal-background {
@@ -414,6 +422,11 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+    font-size: 14px;
+  }
+
+  .stats-values {
+    font-size: 13px;
   }
 
   .main-sprite {
@@ -428,6 +441,8 @@
     display: flex;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .pokemon-stats {
@@ -440,7 +455,146 @@
     width: 10%;
   }
 
+  #eeveelutions {
+    width: 15rem;
+  }
+
+  .display-eevee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(141, 141, 141);
+    width: 50%;
+    margin: 2rem auto;
+    border-radius: 30px;
+    padding-top: 1rem;
+  }
+
+  .evolution-container-eevee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
   .display-none {
+    display: none;
+  }
+
+  #up-button-container {
+    display: none;
+  }
+}
+
+/* partie responsive  TABLETTES */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .name-container {
+    width: 85%;
+    font-size: 1.5rem;
+  }
+
+  .name-container h1 {
+    font-size: 3rem;
+  }
+
+  .capitalize-text {
+    font-size: 2rem;
+  }
+
+  .pokemon-description {
+    font-size: 1.55rem;
+    padding: 2rem;
+  }
+
+  .modal-background {
+    width: 80%;
+    max-height: 75vh;
+  }
+
+  .entry-infos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .desc-stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    font-size: 14px;
+  }
+
+  .main-sprite {
+    width: 15rem;
+  }
+
+  .evolve-sprite {
+    width: 9rem;
+  }
+
+  .evolution-container {
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+  }
+
+  .pokemon-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stats-values {
+    font-size: 1.40rem;
+  }
+
+  .evolution-arrow {
+    width: 15%;
+  }
+
+  .evolution-name {
+    font-size: 1.25rem;
+  }
+
+  #eeveelutions {
+    width: 32.5rem;
+  }
+
+  .display-eevee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(141, 141, 141);
+    width: 83%;
+    margin: 2rem auto;
+    border-radius: 30px;
+    padding-top: 1rem;
+  }
+
+  .evolution-container-eevee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .display-none {
+    display: none;
+  }
+
+  #up-button-container {
     display: none;
   }
 }

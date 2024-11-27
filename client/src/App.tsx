@@ -155,7 +155,8 @@ function App() {
           <section className="pokeball-container" />
         </section>
         <div className="app">
-          <nav className="search-bar-container" id="top-shortcut">
+          <div id="top-shortcut" />
+          <nav className="search-bar-container">
             <SearchBar
               setResults={setResults}
               onKeyNavigation={handleKeyNavigation}
