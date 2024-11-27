@@ -3,6 +3,7 @@ import trainersdata from "../../data/trainersdata.json";
 import TrainerCards from "../components/Trainercards";
 import "../components/Trainers.css";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 function Trainerpage() {
   const [loading, setLoading] = useState(true);
@@ -15,12 +16,16 @@ function Trainerpage() {
   }, []);
 
   return (
-    <div>
+    <>
       {loading ? (
         <Loader />
       ) : (
-        <>
-          <main className="trainercards">
+      <main className="trainers">
+        <div className="trainersContent">
+          <section className="trainersTitle">
+            <h1>Pokémon Trainers</h1>
+          </section>
+          <section className="trainersCardsContainer">
             {trainersdata.map((trainer) => (
               <TrainerCards
                 key={trainer.id}
@@ -32,11 +37,14 @@ function Trainerpage() {
                 trainerfav3={trainer.trainerfav3}
               />
             ))}
-          </main>
-        </>
-      )}
-    </div>
-  );
+          </section>
+          <section className="btnReturn">
+            <Link to="/"> Return </Link>
+          </section>
+          </div>
+      </main>
+    )}
+  </>);
 }
 
 export default Trainerpage;
