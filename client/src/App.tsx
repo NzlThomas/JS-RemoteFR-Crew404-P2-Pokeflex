@@ -155,7 +155,7 @@ function App() {
           <section className="pokeball-container" />
         </section>
         <div className="app">
-          <nav className="search-bar-container">
+          <nav className="search-bar-container" id="top-shortcut">
             <SearchBar
               setResults={setResults}
               onKeyNavigation={handleKeyNavigation}
@@ -196,6 +196,11 @@ function App() {
               </>
             )}
           </section>
+        </div>
+        <div id="up-button-container">
+          <button type="button">
+            <a href="#top-shortcut">Salut je suis un bouton up</a>
+          </button>
         </div>
         <Link to="/trainers">
           Découvrez en plus sur les différents Dresseurs ici !
