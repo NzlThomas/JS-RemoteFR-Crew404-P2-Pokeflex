@@ -199,7 +199,7 @@ function App() {
         </div>
         <Link to="/trainers" className="lien-trainer">
           More about the different Pokémon Trainers here !
-         </Link>
+        </Link>
         <div id="up-button-container">
           <button type="button">
             <a href="#top-shortcut">Salut je suis un bouton up</a>
