@@ -6,17 +6,23 @@
   cursor: pointer;
   outline: inherit;
   width: 100%;
-  max-width: 300px;
   font-family: "Montserrat", sans-serif;
   flex-shrink: 0;
   overflow: hidden;
   text-align: left;
+  font-size: 1.5rem;
+  @media (min-width: 992px) {
+    font-size: 15px;
+  }
 }
 
 .search-result.selected {
   background-color: #e0e0e0;
-  font-size: 20px;
+  font-size: 2rem;
   font-family: "Montserrat", sans-serif;
+  @media (min-width: 992px) {
+    font-size: 20px;
+  }
 }
 
 .search-result:focus {

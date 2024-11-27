@@ -108,31 +108,50 @@ h1 {
 }
 
 .search-bar-container {
-  background-color: #df3535;
-  padding: 2px;
-  margin-top: 3%;
+  background-color: #df353500;
+  margin-top: 1em;
   border-radius: 20px;
-  width: 100%;
-  height: 75px;
+  right: 5vh;
+  left: 5vh;
+  height: 10vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: fixed;
+  z-index: 2;
+  @media (min-width: 992px) {
+    flex-direction: column;
+    padding: 2em;
+    margin-top: 2em;
+    border-radius: 20px;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #df3535;
+  }
 }
 
 .rechercher-par-type {
   border-radius: 100px;
-  padding: 10px;
+  padding: 6px;
   display: flex;
   flex-direction: row;
   justify-items: center;
   align-items: center;
   background-color: #f9f9f9;
   font-family: "Montserrat", sans-serif;
-  max-width: 400px;
-  margin: 20px;
+  width: 40rem;
+  margin-top: 1em;
   box-shadow: 0px 0px 12px black;
+  @media (min-width: 992px) {
+    margin: 20px;
+    width: 20rem;
+    padding: 9px;
+  }
 }
 
 .search-bar-results-container {
@@ -144,7 +163,6 @@ h1 {
 
 .app {
   position: relative;
-  min-width: 100vh;
 }
 
 .search-results-container {
@@ -152,13 +170,18 @@ h1 {
   top: 35px;
   right: 0;
   z-index: 10;
-  width: 100%;
-  max-width: 650px;
+  width: 40rem;
+  max-width: 40rem;
   margin: 0 auto;
+  @media (min-width: 992px) {
+    width: 20rem;
+    right: 1em;
+  }
 }
 
 .pokemon-display {
   position: relative;
+  margin-top: 5em;
 }
 
 #up-button-container {

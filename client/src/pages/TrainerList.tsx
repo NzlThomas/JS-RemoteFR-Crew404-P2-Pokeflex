@@ -1,5 +1,5 @@
 import trainersdata from "../../data/trainersdata.json";
-import TrainerCards from "./Trainercards";
+import TrainerCards from "../components/Trainercards";
 import "../components/Trainers.css";
 
 function Trainerpage() {

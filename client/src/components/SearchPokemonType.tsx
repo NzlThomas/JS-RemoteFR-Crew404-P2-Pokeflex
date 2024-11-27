@@ -18,6 +18,7 @@ function SearchPokemonType() {
 
   return (
     <select
+      className="type-selector"
       name="selectedType"
       value={selectedType?.name || ""}
       onChange={(e) => handleSelectType(e.target.value)}

@@ -4,6 +4,15 @@
 }
 
 select option {
-  background-color: white;
   font-family: "Montserrat", sans-serif;
+}
+
+.type-selector {
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: rgb(85, 83, 83);
+  @media (min-width: 992px) {
+    font-size: 15px;
+  }
 }
