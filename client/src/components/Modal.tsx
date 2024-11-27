@@ -74,7 +74,10 @@ function Modal({
   } = selectionData;
 
   // supprime les caractères non imprimables
-  const cleanDescription = description.replace(/[^ -~]/g, " ");
+  const cleanDescription = description.replace(
+    /[^\p{L}\p{N}\p{P}\p{Zs}]+/gu,
+    " ",
+  );
 
   //J'initialise ma constante qui va contenir le premier type du pokémon sélectionné, elle servira de comparaison pour définir la couleur de fond du sprite
   const typeBg = types[0];

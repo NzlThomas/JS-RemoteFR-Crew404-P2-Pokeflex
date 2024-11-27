@@ -52,7 +52,7 @@
   border-right: 15px solid #df3535;
   transition: border-top 2s ease, border-bottom 2s ease, border-left 2s ease,
     border-right 2s ease;
-  z-index: 8;
+  z-index: -1;
   pointer-events: none;
   position: fixed;
   left: 50%;

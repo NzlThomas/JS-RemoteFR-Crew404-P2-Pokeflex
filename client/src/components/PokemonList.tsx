@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import Modal from "./Modal";
+import "./Types.css";
+import { useEffect } from "react";
 
 interface PokemonProps {
   name: string;
@@ -41,6 +43,26 @@ function PokemonList(props: PokemonProps) {
   const [showSecondArrow, setShowSecondArrow] = useState(false);
   // création du state pour alterner entre false et true (donc modale cachée vs affichée)
   const [displayModal, setDisplayModal] = useState(false);
+  //création d'un state qui va stocker le type du pokémon dès l'arrivée sur le pokéflex
+  const [typeBorder, setTypeBorder] = useState<string | null>(null);
+  //le useeffect est trigger directement pour récupérer le type sans avoir besoin d'une action de l'utilisateur
+  //comme pour le handleclick on récupère uniquement la première entrée du tableau (donc bulbizarre apparaîtra en vert car son premier type est herbe dans l'api)
+  useEffect(() => {
+    const fetchType = async () => {
+      try {
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+        const typePokemon = res.data.types;
+        const typesList = typePokemon.map(
+          (typeInfo: { type: { name: string } }) => typeInfo.type.name,
+        );
+        setTypeBorder(typesList[0]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchType();
+  }, [id]);
 
   // lors du clic sur la card la constante est déclenchée, et elle passe l'état de setDisplayModal à true pour qu'elle soit affichée et donne les données nécessaire à l'affichage de la modale
   const handleClick = async () => {
@@ -61,6 +83,9 @@ function PokemonList(props: PokemonProps) {
       const typesList = typePokemon.map(
         (typeInfo: { type: { name: string } }) => typeInfo.type.name,
       );
+
+      // const typeBg = typesList[0];
+      // const test = typesList;
 
       //je crée une constante pour chaque statistique
       const hp = res2.data.stats[0].base_stat;
@@ -177,6 +202,7 @@ function PokemonList(props: PokemonProps) {
         className="pokemon-list-container"
         onClick={handleClick}
         onKeyUp={handleKeyUp}
+        id={typeBorder ? typeBorder : ""}
       >
         <p className="pokemon-name">{name}</p>
         <img src={img} alt={name} />

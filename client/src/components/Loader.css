@@ -7,6 +7,8 @@
 }
 
 .imgload {
-  width: 25%;
-  height: auto;
+  width: 30%;
+  @media screen and (min-width: 992px) {
+    width: 10%;
+  }
 }
