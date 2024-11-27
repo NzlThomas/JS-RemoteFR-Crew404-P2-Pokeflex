@@ -155,7 +155,7 @@ function App() {
           <section className="pokeball-container" />
         </section>
         <div className="app">
-          <nav className="search-bar-container">
+          <nav className="search-bar-container" id="top-shortcut">
             <SearchBar
               setResults={setResults}
               onKeyNavigation={handleKeyNavigation}
@@ -198,8 +198,13 @@ function App() {
           </section>
         </div>
         <Link to="/trainers" className="lien-trainer">
-          Learn more about the different Pokémon Trainers here!
-        </Link>
+          More about the different Pokémon Trainers here !
+         </Link>
+        <div id="up-button-container">
+          <button type="button">
+            <a href="#top-shortcut">Salut je suis un bouton up</a>
+          </button>
+        </div>
       </div>
     </TypeContext.Provider>
   );
