@@ -9,7 +9,7 @@ import App from "./App";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-import TrainerList from "./components/TrainerList";
+import TrainerList from "./pages/TrainerList";
 
 /* ************************************************************************* */
 
