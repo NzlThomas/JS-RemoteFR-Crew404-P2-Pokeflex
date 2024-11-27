@@ -256,7 +256,7 @@ function Modal({
           </div>
         </section>
         <section
-          className={`evolution-container ${id === Number(133) || id === Number(134) || id === Number(135) || id === Number(136) || id === Number(196) || id === Number(197) || id === Number(470) || id === Number(471) || id === Number(700) ? "display-eevee" : "display-none"}`}
+          className={`evolution-container-eevee ${id === Number(133) || id === Number(134) || id === Number(135) || id === Number(136) || id === Number(196) || id === Number(197) || id === Number(470) || id === Number(471) || id === Number(700) ? "display-eevee" : "display-none"}`}
         >
           <img
             alt="List of Eevee's evolutions."

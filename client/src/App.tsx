@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
@@ -155,7 +156,8 @@ function App() {
           <section className="pokeball-container" />
         </section>
         <div className="app">
-          <nav className="search-bar-container" id="top-shortcut">
+          <div id="top-shortcut" />
+          <nav className="search-bar-container">
             <SearchBar
               setResults={setResults}
               onKeyNavigation={handleKeyNavigation}
@@ -201,8 +203,10 @@ function App() {
           More about the different Pokémon Trainers here !
         </Link>
         <div id="up-button-container">
-          <button type="button">
-            <a href="#top-shortcut">Salut je suis un bouton up</a>
+          <button type="button" id="up-button-style">
+            <a href="#top-shortcut">
+              <MdKeyboardDoubleArrowUp size={55} />
+            </a>
           </button>
         </div>
       </div>
