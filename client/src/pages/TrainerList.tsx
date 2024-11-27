@@ -41,10 +41,11 @@ function Trainerpage() {
           <section className="btnReturn">
             <Link to="/"> Return </Link>
           </section>
-          </div>
+        </div>
       </main>
     )}
-  </>);
+    </>
+  );
 }
 
 export default Trainerpage;

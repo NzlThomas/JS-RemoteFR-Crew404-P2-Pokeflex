@@ -1,13 +1,12 @@
 .load {
   display: flex;
-  flex-direction: column;
-  padding: 20vh;
-  margin: 20vh;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgload {
-  max-width: none;
-  max-height: none;
-  width: 20em;
+  width: 25%;
   height: auto;
 }
