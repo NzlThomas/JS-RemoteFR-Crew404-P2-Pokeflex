@@ -191,20 +191,20 @@ function App() {
                   type="button"
                   className="seemore-button-section"
                 >
-                  Plus de pokémons
+                  More Pokemons
                 </button>
               </>
             )}
           </section>
         </div>
+        <Link to="/trainers" className="lien-trainer">
+          More about the different Pokémon Trainers here !
+        </Link>
         <div id="up-button-container">
           <button type="button">
             <a href="#top-shortcut">Salut je suis un bouton up</a>
           </button>
         </div>
-        <Link to="/trainers">
-          Découvrez en plus sur les différents Dresseurs ici !
-        </Link>
       </div>
     </TypeContext.Provider>
   );

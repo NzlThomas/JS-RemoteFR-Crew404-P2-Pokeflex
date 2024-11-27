@@ -16,57 +16,65 @@ body {
   border-radius: 8em;
   margin: 5%;
   @media screen and (min-width: 992px) {
-    margin: 1.5%;
+    margin: 1.5em;
   }
 }
 
 .trainersContent {
   padding: 2em;
+  @media screen and (min-width: 992px) {
+    padding: 0;
+  }
 }
 
 .trainersTitle {
   text-align: center;
-  padding: 5em;
+  padding: 4.5em;
   font-family: "Montserrat", sans-serif;
   @media screen and (min-width: 992px) {
-    padding: 8em;
+    padding: 6em;
   }
 }
 
 .trainersTitle h1 {
   font-size: 3em;
   color: whitesmoke;
+  font-family: "Montserrat", sans-serif;
   @media screen and (min-width: 992px) {
-    font-size: 4.5em;
+    font-size: 3.5em;
   }
 }
 
 .trainersCardsContainer {
-  margin: 2em 0;
+  margin: 2.5em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5em;
   @media screen and (min-width: 992px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+    align-items: center;
+    margin: 0;
   }
 }
 
 .trainer-cards {
   width: 75%;
-  height: 40em;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Flexo-Medium", sans-serif;
   background-color: grey;
   border-radius: 2em;
   padding: 2em;
   margin: 0em 10em;
   @media screen and (min-width: 992px) {
-    width: 80%;
-    height: 50em;
+    width: 90%;
+    height: 90%;
+    margin: 1.5em auto;
+    padding: 0;
   }
 }
 
@@ -74,7 +82,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   @media screen and (min-width: 992px) {
-    padding: 1em;
+    margin: 1em auto;
   }
 }
 
@@ -83,29 +91,40 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0.5em 0;
+  @media screen and (min-width: 992px) {
+    margin: 0;
+  }
 }
 
 .trainerName {
   font-size: 3em;
   color: whitesmoke;
+  font-family: "Montserrat", sans-serif;
+  @media screen and (min-width: 992px) {
+    font-size: 2em;
+  }
 }
 
 .trainerImg {
-  height: 20em;
   width: 16em;
+  height: 20em;
   align-items: start;
   margin-top: 1.2em;
+  @media screen and (min-width: 992px) {
+    max-width: 12em;
+    max-height: 15em;
+  }
 }
 
 .trainerDescription {
   text-align: center;
   color: whitesmoke;
   font-size: 1.8em;
-  text-align: center;
+  font-family: "Flexo-Medium", sans-serif;
   margin: auto;
   @media screen and (min-width: 992px) {
-    margin: auto 1em;
-    font-size: 2em;
+    margin: auto 1.2em;
+    font-size: 1.3em;
   }
 }
 
@@ -115,7 +134,7 @@ body {
   align-items: center;
   margin: auto;
   @media screen and (min-width: 992px) {
-    padding: 0.5em;
+    margin: 1em 0;
   }
 }
 
@@ -124,8 +143,29 @@ body {
   width: 7.6em;
   margin: 1.2em;
   @media screen and (min-width: 992px) {
-    height: 10em;
-    width: 8em;
-    margin: 2.5em;
+    max-height: 5em;
+    max-width: 4em;
+    margin: 0.5em 0.8em;
+  }
+}
+
+.btnReturn {
+  margin: 0 10em;
+  padding: 2.5em;
+  @media screen and (min-width: 992px) {
+    padding: 5em;
+  }
+}
+
+.btnReturn a {
+  padding: 0.6em;
+  font-size: 2.5em;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: whitesmoke;
+  border-radius: 2em;
+  background-color: #df3535;
+  @media screen and (min-width: 992px) {
+    font-size: 2em;
   }
 }
