@@ -3,6 +3,8 @@
   src: url("./fonts/Flexo-Medium.ttf") format("truetype");
   font-family: "Montserrat";
   src: url("./fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+  font-family: "Pokemon-Hollow";
+  src: url("./fonts/Pokemon-Hollow.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -33,24 +35,6 @@ body {
   }
 }
 
-.trainersTitle {
-  text-align: center;
-  padding: 1.8em;
-  font-family: "Montserrat", sans-serif;
-  @media screen and (min-width: 992px) {
-    padding: 6em;
-  }
-}
-
-.trainersTitle h1 {
-  font-size: 1.2em;
-  color: whitesmoke;
-  font-family: "Montserrat", sans-serif;
-  @media screen and (min-width: 992px) {
-    font-size: 3.5em;
-  }
-}
-
 .trainersCardsContainer {
   margin: 1em 0;
   display: flex;
@@ -74,6 +58,7 @@ body {
   background-color: grey;
   border-radius: 2em;
   padding: 1em;
+  border: #277dff solid 2px;
   @media screen and (min-width: 992px) {
     width: 90%;
     height: 90%;
@@ -171,5 +156,18 @@ body {
   @media screen and (min-width: 992px) {
     font-size: 2em;
     margin-left: 2.5em;
+  }
+}
+
+.trainerTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trainerdex {
+  width: 98%;
+  @media screen and (min-width: 992px) {
+    width: 50%;
   }
 }

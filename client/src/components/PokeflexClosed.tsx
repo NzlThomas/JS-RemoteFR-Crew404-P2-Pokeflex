@@ -2,42 +2,31 @@ import { useState } from "react";
 import "./PokeflexClosed.css";
 
 const Pokeclosed = () => {
-  const [isSplit, setIsSplit] = useState(false);
-  const [clicked, setClicked] = useState(false);
-  const [isHiddenBackground, setIsHiddenBackground] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   const handleClick = () => {
-    if (!clicked) {
-      setIsSplit(true);
-      setClicked(true);
-
-      setTimeout(() => {
-        setIsHiddenBackground(true);
-      }, 2000);
-    }
+    setIsHidden(true);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
       handleClick();
     }
   };
 
   return (
-    <div className="background-container">
+    <div className={`background-container ${isHidden ? "hidden" : ""}`}>
       <button
-        className={`rectangle
-          ${isSplit ? "split" : ""}
-          ${clicked ? "clicked" : ""}
-          ${isHiddenBackground ? "hidden-background" : ""}`}
+        className={`pokeflex ${isHidden ? "hidden" : ""}`}
         onClick={handleClick}
-        onKeyDown={handleKeyPress}
-        type="button"
+        onKeyDown={handleKeyDown}
         aria-label="Pokéflex button"
+        type="button"
       >
-        <div className={`pokeflex ${clicked ? "hidden" : ""}`}>Pokéflex</div>
+        Pokéflex
       </button>
     </div>
   );
 };
+
 export default Pokeclosed;

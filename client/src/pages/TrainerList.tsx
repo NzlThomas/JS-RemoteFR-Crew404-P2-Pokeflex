@@ -3,6 +3,7 @@ import trainersdata from "../../data/trainersdata.json";
 import TrainerCards from "../components/Trainercards";
 import "../components/Trainers.css";
 import { Link } from "react-router-dom";
+import trainerdex from "../../public/trainer-h1.png";
 import Loader from "../components/Loader";
 
 function Trainerpage() {
@@ -22,8 +23,8 @@ function Trainerpage() {
       ) : (
         <main className="trainers">
           <div className="trainersContent">
-            <section className="trainersTitle">
-              <h1>Pokémon Trainers</h1>
+            <section className="trainerTitle">
+              <img alt="trainer dex" src={trainerdex} className="trainerdex" />
             </section>
             <section className="trainersCardsContainer">
               {trainersdata.map((trainer) => (

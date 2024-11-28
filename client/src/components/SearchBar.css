@@ -42,11 +42,19 @@ input:focus {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
+  .search-bar-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
   .input-wrapper {
-    width: 15rem;
+    width: 65vh;
     margin-top: 70px;
     font-size: 9px;
+    margin-left: 11vh;
+    margin-right: 11vh;
   }
 
   .input {

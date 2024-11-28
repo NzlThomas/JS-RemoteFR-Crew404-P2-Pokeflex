@@ -153,8 +153,11 @@ function App() {
         <div className="app-content">
           <section className="pokeclosed-section">
             <Pokeclosed />
-            <section className="pokeball-container" />
+            <div>
+              <section className="pokeball-container" />
+            </div>
             <section className="controler-img" />
+            <section className="light-img" />
           </section>
           <div className="app">
             <nav className="search-bar-container">
@@ -168,6 +171,9 @@ function App() {
                 setSelectedIndex={setSelectedIndex}
                 handleResultClick={handleResultClick}
               />
+              <Link to="/trainers" className="lien-trainer">
+                More about the different Pokémon Trainers here !
+              </Link>
               <section className="rechercher-par-type">
                 <SearchPokemonType />
               </section>
@@ -182,7 +188,7 @@ function App() {
                     type="button"
                     className="seemore-button-section"
                   >
-                    Retour à la liste
+                    Return
                   </button>
                 </>
               ) : (
@@ -199,9 +205,6 @@ function App() {
               )}
             </section>
           </div>
-          <Link to="/trainers" className="lien-trainer">
-            More about the different Pokémon Trainers here !
-          </Link>
         </div>
       </div>
     </TypeContext.Provider>

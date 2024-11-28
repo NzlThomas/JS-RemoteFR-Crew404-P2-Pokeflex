@@ -71,6 +71,18 @@ body {
   }
 }
 
+.light-img {
+  position: fixed;
+  top: 5px;
+  right: 0px;
+  width: 65px;
+  height: 65px;
+  background-image: url("/DiodePoke.png");
+  background-size: 65px;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
 @keyframes pulse {
   0%,
   100% {
@@ -148,8 +160,6 @@ h1 {
   left: 1em;
   right: 0;
   z-index: 10;
-  width: 40rem;
-  max-width: 40rem;
   margin: 0 auto;
 }
 
@@ -162,12 +172,13 @@ h1 {
 
 .pokemonlist {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding: 1vh;
   height: 60vh;
   max-height: 90vh;
   overflow-y: auto;
+  margin-top: 0.3em;
 }
 
 .pokemon-list-container {
@@ -217,7 +228,7 @@ h1 {
   position: fixed;
   bottom: auto;
   top: 59%;
-  left: 7%;
+  left: 4%;
   background-color: #df3535;
   color: antiquewhite;
   font-size: 12px;
@@ -278,7 +289,7 @@ h1 {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
   .lien-trainer {
     display: flex;
     justify-content: center;
@@ -292,11 +303,16 @@ h1 {
     padding: 10px 20px;
     box-shadow: 0px 10px 8px rgba(8, 8, 8, 0.2);
     text-align: center;
-    z-index: 20;
+    z-index: 4;
     width: 45%;
     left: 50%;
     transform: translateX(-50%);
-    top: 21%;
+    top: 21vh;
+  }
+
+  .app-container {
+    width: 100%;
+    overflow-y: hidden;
   }
 
   .app-content {
@@ -345,16 +361,17 @@ h1 {
     align-items: center;
     border: none;
   }
+
   .pokemonlist {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 10px;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    margin-top: 25%;
-    height: auto;
-    max-height: 80vh;
+    gap: 0;
+    margin-top: 0.1em;
+    margin-bottom: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
+    max-height: 60vh;
     overflow-y: auto;
   }
 
@@ -365,6 +382,13 @@ h1 {
 
   .pokemon-list-container {
     height: auto;
+    padding: 0.5em;
+  }
+
+  .pokemon-name {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
   }
 
   h1 {
@@ -376,21 +400,24 @@ h1 {
   .pokeball-container {
     display: flex;
     position: fixed;
-    right: 25px;
-    bottom: 30px;
-    width: 65px;
-    height: 65px;
-    background-repeat: no-repeat;
+    right: 2.4em;
+    bottom: 2.3em;
+    width: 2.2em;
+    height: 2.5em;
+    background-size: 2.1em;
     z-index: 10;
     animation: pulse 2s infinite ease-in-out;
+  }
+
+  .controler-img {
+    width: 10em;
   }
 
   .seemore-button-section {
     position: fixed;
     font-size: 10px;
-    width: 34%;
-    top: 92%;
-    left: 32%;
+    top: 90.5%;
+    left: auto;
     background-color: #df3535;
     color: antiquewhite;
     font-family: "Montserrat", sans-serif;
