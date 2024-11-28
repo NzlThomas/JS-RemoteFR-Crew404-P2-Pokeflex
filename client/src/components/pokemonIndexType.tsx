@@ -22,12 +22,12 @@ const PokemonType: IndexType[] = [
   },
   {
     id: "2",
-    name: "Combat",
+    name: "Fighting",
     url: "https://pokeapi.co/api/v2/type/2/",
   },
   {
     id: "3",
-    name: "Vol",
+    name: "Flying",
     url: "https://pokeapi.co/api/v2/type/3/",
   },
   {
@@ -37,57 +37,57 @@ const PokemonType: IndexType[] = [
   },
   {
     id: "5",
-    name: "Sol",
+    name: "Ground",
     url: "https://pokeapi.co/api/v2/type/5/",
   },
   {
     id: "6",
-    name: "Roche",
+    name: "Rock",
     url: "https://pokeapi.co/api/v2/type/6/",
   },
   {
     id: "7",
-    name: "Insecte",
+    name: "Bug",
     url: "https://pokeapi.co/api/v2/type/7/",
   },
   {
     id: "8",
-    name: "Spectre",
+    name: "Ghost",
     url: "https://pokeapi.co/api/v2/type/8/",
   },
   {
     id: "9",
-    name: "Acier",
+    name: "Steel",
     url: "https://pokeapi.co/api/v2/type/9/",
   },
   {
     id: "10",
-    name: "Feu",
+    name: "Fire",
     url: "https://pokeapi.co/api/v2/type/10/",
   },
   {
     id: "11",
-    name: "Eau",
+    name: "Water",
     url: "https://pokeapi.co/api/v2/type/11/",
   },
   {
     id: "12",
-    name: "Plante",
+    name: "Grass",
     url: "https://pokeapi.co/api/v2/type/12/",
   },
   {
     id: "13",
-    name: "Electrik",
+    name: "Electric",
     url: "https://pokeapi.co/api/v2/type/13/",
   },
   {
     id: "14",
-    name: "Psy",
+    name: "Psychic",
     url: "https://pokeapi.co/api/v2/type/14/",
   },
   {
     id: "15",
-    name: "Glace",
+    name: "Ice",
     url: "https://pokeapi.co/api/v2/type/15/",
   },
   {
@@ -97,23 +97,13 @@ const PokemonType: IndexType[] = [
   },
   {
     id: "17",
-    name: "Ténèbres",
+    name: "Dark",
     url: "https://pokeapi.co/api/v2/type/17/",
   },
   {
     id: "18",
-    name: "Fée",
+    name: "Fairy",
     url: "https://pokeapi.co/api/v2/type/18/",
-  },
-  {
-    id: "19",
-    name: "Stellaire",
-    url: "https://pokeapi.co/api/v2/type/19/",
-  },
-  {
-    id: "20",
-    name: "Inconnu",
-    url: "https://pokeapi.co/api/v2/type/10001/",
   },
 ];
 

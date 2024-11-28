@@ -78,6 +78,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.name-container h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
 .sprite-type-container {
   display: flex;
   flex-direction: column;

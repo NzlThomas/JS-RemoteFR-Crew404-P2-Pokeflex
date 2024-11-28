@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
-import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Pokeclosed from "./components/PokeflexClosed";
 import PokemonCards from "./components/PokemonCards";
@@ -151,63 +150,61 @@ function App() {
   return (
     <TypeContext.Provider value={{ selectedType, setSelectedType }}>
       <div className="app-container">
-        <section className="pokeclosed-section">
-          <Pokeclosed />
-          <section className="pokeball-container" />
-        </section>
-        <div className="app">
-          <div id="top-shortcut" />
-          <nav className="search-bar-container">
-            <SearchBar
-              setResults={setResults}
-              onKeyNavigation={handleKeyNavigation}
-              setShowResults={setShowResults}
-              showResults={showResults}
-              results={results}
-              selectedIndex={selectedIndex}
-              setSelectedIndex={setSelectedIndex}
-              handleResultClick={handleResultClick}
-            />
-            <section className="rechercher-par-type">
-              <SearchPokemonType />
-            </section>
-          </nav>
-
-          <section className="pokemon-display">
-            {selectedPokemon ? (
-              <>
-                <PokemonCards pokemons={[selectedPokemon]} />
-                <button
-                  onClick={resetSelection}
-                  type="button"
-                  className="reset-button"
-                >
-                  Retour à la liste
-                </button>
-              </>
-            ) : (
-              <>
-                <PokemonCards pokemons={filteredPokemons} />
-                <button
-                  onClick={handleNextPage}
-                  type="button"
-                  className="seemore-button-section"
-                >
-                  More Pokemons
-                </button>
-              </>
-            )}
+        <div className="app-content">
+          <section className="pokeclosed-section">
+            <Pokeclosed />
+            <div>
+              <section className="pokeball-container" />
+            </div>
+            <section className="controler-img" />
+            <section className="light-img" />
           </section>
-        </div>
-        <Link to="/trainers" className="lien-trainer">
-          More about the different Pokémon Trainers here !
-        </Link>
-        <div id="up-button-container">
-          <button type="button" id="up-button-style">
-            <a href="#top-shortcut">
-              <MdKeyboardDoubleArrowUp size={55} />
-            </a>
-          </button>
+          <div className="app">
+            <nav className="search-bar-container">
+              <SearchBar
+                setResults={setResults}
+                onKeyNavigation={handleKeyNavigation}
+                setShowResults={setShowResults}
+                showResults={showResults}
+                results={results}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+                handleResultClick={handleResultClick}
+              />
+              <Link to="/trainers" className="lien-trainer">
+                More about the different Pokémon Trainers here !
+              </Link>
+              <section className="rechercher-par-type">
+                <SearchPokemonType />
+              </section>
+            </nav>
+
+            <section className="pokemon-display">
+              {selectedPokemon ? (
+                <>
+                  <PokemonCards pokemons={[selectedPokemon]} />
+                  <button
+                    onClick={resetSelection}
+                    type="button"
+                    className="seemore-button-section"
+                  >
+                    Return
+                  </button>
+                </>
+              ) : (
+                <>
+                  <PokemonCards pokemons={filteredPokemons} />
+                  <button
+                    onClick={handleNextPage}
+                    type="button"
+                    className="seemore-button-section"
+                  >
+                    More Pokemons
+                  </button>
+                </>
+              )}
+            </section>
+          </div>
         </div>
       </div>
     </TypeContext.Provider>

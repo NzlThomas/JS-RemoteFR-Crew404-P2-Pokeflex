@@ -110,7 +110,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       <div className="input-wrapper">
         <FaSearch id="search-icon" />
         <input
-          placeholder="Rechercher un pokémon"
+          placeholder="Pokémon name"
           value={input}
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}

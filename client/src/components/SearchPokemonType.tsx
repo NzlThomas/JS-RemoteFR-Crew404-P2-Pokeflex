@@ -23,9 +23,15 @@ function SearchPokemonType() {
       value={selectedType?.name || ""}
       onChange={(e) => handleSelectType(e.target.value)}
     >
-      <option value="">Sélectionnez un type</option>
+      <option value="" className="default-type">
+        Select type
+      </option>
       {PokemonType.map((type) => (
-        <option key={type.id} value={type.name}>
+        <option
+          key={type.id}
+          value={type.name}
+          className={`type-${type.name.toLowerCase()}`}
+        >
           {type.name}
         </option>
       ))}

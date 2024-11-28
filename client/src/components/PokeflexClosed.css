@@ -1,62 +1,40 @@
-.rectangle {
+.background-container {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #df3535;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  background-color: #df3535;
+  transition: opacity 2s ease;
   z-index: 1000;
-  opacity: 1;
-  transition: opacity 3s ease;
-  cursor: pointer;
+}
+
+.background-container.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .pokeflex {
-  position: fixed;
-  top: 15;
-  left: 15;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Pokemon Solid", sans-serif;
   font-size: 200px;
   color: #ffcc00;
   text-shadow: 13px 5px 0 #0075be, -10px -5px 0 #0075be, 13px -5px 0 #0075be,
     -13px 5px 0 #0075be;
-  z-index: 1001;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 2s ease;
-  background-color: #df3535;
+  background-color: transparent;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 3s ease;
 }
 
 .pokeflex.hidden {
   opacity: 0;
-  transition: opacity 3s ease;
-}
-
-.rectangle.split {
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent;
-  border-top: 15px solid #df3535;
-  border-bottom: 15px solid #df3535;
-  border-left: 15px solid #df3535;
-  border-right: 15px solid #df3535;
-  transition: border-top 2s ease, border-bottom 2s ease, border-left 2s ease,
-    border-right 2s ease;
-  z-index: 8;
   pointer-events: none;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 485px) {
@@ -69,21 +47,22 @@
     overflow: hidden;
   }
 
-  .pokeflex {
-    font-size: 100px;
+  .background-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #df3535;
-    height: 100%;
-    width: 100%;
+    padding: 0;
   }
 
-  .rectangle.split {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box; /* Inclut les bordures dans les dimensions */
-    border-top: 10px solid #df3535;
-    border-bottom: 10px solid #df3535;
-    border-left: 20px solid #df3535;
-    border-right: 20px solid #df3535;
-    margin: 0 auto; /* Centrer l'élément */
+  .pokeflex {
+    font-size: 80px;
+    background-color: transparent;
+    border: none;
+    text-shadow: 10px 4px 0 #0075be, -8px -4px 0 #0075be, 10px -4px 0 #0075be,
+      -10px 4px 0 #0075be;
+    padding: 0;
+    height: auto;
+    width: auto;
   }
 }
