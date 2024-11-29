@@ -1,6 +1,6 @@
 import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import "./searchBar.css";
+import "./SearchBar.css";
 import axios from "axios";
 import { SearchResultsList } from "./SearchResultsList";
 
