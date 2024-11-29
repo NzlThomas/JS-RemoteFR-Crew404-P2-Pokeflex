@@ -199,7 +199,7 @@ function App() {
                     type="button"
                     className="seemore-button-section"
                   >
-                    More Pokemons
+                    More Pokémons
                   </button>
                 </>
               )}
